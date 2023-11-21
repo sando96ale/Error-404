@@ -1,37 +1,78 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html>
 <head>
-	<title>MI WEB| {% block titulo %}{% endblock titulo %}</title>
-
-	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+	<title>IA| {% block titulo %}{% endblock titulo %}</title>
+	<script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" type="text/css" href="{% static 'main.css' %}">
 </head>
 
+<!-- Navbar -->
+<body>
 
-<body class="contenedor">
-
-	<div class="centrar">
-		<img src="{% static 'img/logo.png' %}" width="50px" height="50px">
-		<a href="{% url 'home' %}">IR AL HOME</a>
-		<a href="{% url 'nosotros' %}">IR A NOSOTROS</a>
-		<a href="{% url 'noticias:listar' %}">IR A NOTICIAS</a>
-
-		{% if user.is_authenticated %}
-			<strong>Hola {{ user.username }}</strong>
-			<a href="{% url 'logout' %}">LOGOUT</a>
-		{% else %}
-			<a href="{% url 'login' %}">LOGIN</a>
-			<a href="{% url 'usuarios:registro' %}">Registrar</a>
-		{% endif %}
-		
-		
-
-	</div>
+	<header>
+		<nav>
+			<img src="{% static 'img/icono.png' %}" width="70px" height="70px">
+			<div class="menu">
+				<ul class="list">
+					<li><a href="{% url 'home' %}">Inicio</a></li>
+					<li><a href="{% url 'nosotros' %}">Nosotros</a></li>
+					<li><a href="{% url 'noticias:listar' %}">Noticias</a></li>
+				</ul>
+				<ul class="list1">
+					<li>
+						{% if user.is_authenticated %}
+							<li>
+								<strong class="user" style="text-transform: uppercase;">Hola {{ user.username }}</strong>
+								<a href="{% url 'logout' %}">CERRAR SESIÓN</a>
+							</li>
+						{% else %}
+							<a href="{% url 'login' %}">INICIAR SESIÓN</a>
+							<a href="{% url 'usuarios:registro' %}">Registrarse</a>
+						{% endif %}
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</header>
 
 	<div class="bloque">
 	{% block contenido %}
-	
+
 	{% endblock contenido %}
 	</div>
+
+	<!-- Footer -->
+	<footer class="footer">
+		<div class="cluster1">
+			<div class="box">
+				<figure>
+					<a href="#">
+						<img src="{% static 'img/fooster.png' %}" alt="">
+					</a>
+				</figure>
+			</div>
+			<div class="box">
+				<h2>SOBRE NOSOTROS</h2>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, quod.</p>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, a.</p>
+			</div>
+			<div class="box">
+				<h2>SIGUENOS</h2>
+				<div class="red-social">
+					<a href="#" class="fa fa-facebook"></a>
+					<a href="#" class="fa fa-instagram"></a>
+                    <a href="#" class="fa fa-twitter"></a>
+                    <a href="#" class="fa fa-youtube"></a>
+				</div>
+			</div>
+		</div>
+		<div class="cluster2">
+			<small>&copy; 2023 <b>Sandoval Alexis</b> - Todos los Derechos Reservados.
+			<p>Quitilipi - Chaco.</p></small>
+		</div>
+	</footer>
+
 </body>
 </html>
