@@ -2,20 +2,19 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	font-family: Arial, sans-serif;
 }
 
 .bloque{
-	text-align: center;
 	padding: 0;
-	background-color: white;
+    padding-top: 80px;
+    background-color: black;
 }
 
 /* Imagenes Inicio */
 .slider-box {
 	width: 100%;
 	height: auto;
-	margin: 50px auto 0;
+	margin: 0;
 	overflow: hidden;
 }
 
@@ -49,10 +48,6 @@
 	white-space: nowrap;
 }
 
-.parrafo {
-    padding: 50px;
-}
-
 .slider-box img {
 	width: 100%;
 	height: 100%;
@@ -70,6 +65,12 @@
     100% { margin-left: -200%; }
 }
 
+.parrafo {
+    text-align: center;
+    padding: 50px;
+    color: white;
+}
+
 /* Navbar */
 nav {
     position: fixed;
@@ -78,12 +79,12 @@ nav {
     right: 0;
     top: 0;
     font-family: Arial, Helvetica, sans-serif;
-    padding: 0 1%;
-    height: 100px;
+    padding: 0 7%;
+    height: 80px;
     background-color: #0a1a2a;
     display: flex;
     align-items: center;
-	border-bottom: 2px solid white;
+	border-bottom: 1px solid white;
 }
 
 nav .menu {
@@ -110,7 +111,7 @@ nav .list a {
     display: block;
     text-transform: uppercase;
     padding: 15px 25px;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: bold;
     color: #ffffff;
     text-decoration: none;
@@ -118,7 +119,7 @@ nav .list a {
 }
 
 nav .list a:hover {
-    background-color: aqua;
+    background-color: blue;
 }
 
 nav .user {
@@ -145,7 +146,7 @@ nav .list1 a {
     display: block;
     text-transform: uppercase;
     padding: 15px 25px;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: bold;
     color: #ffffff;
     text-decoration: none;
@@ -153,7 +154,13 @@ nav .list1 a {
 }
 
 nav .list1 a:hover {
-    background-color: aqua;
+    background-color: blue;
+}
+
+nav .list1 img {
+    width: 30px;
+    height: 30px;
+    margin-right: -10px;
 }
 
 /* Lista de noticias */
@@ -162,7 +169,7 @@ nav .list1 a:hover {
 	display: flex;
 	max-width: 1800px;
 	justify-content: space-around;
-    padding-top: 20px;
+    padding-top: 10px;
     padding-left: 100px;
 }
 
@@ -191,6 +198,7 @@ nav .list1 a:hover {
 .card .contenido {
 	padding: 25px;
 	text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .card .contenido p {
@@ -199,31 +207,37 @@ nav .list1 a:hover {
 }
 
 .card .contenido h3 {
-	font-weight: 200;
+	font-weight: 200px;
 	margin-bottom: 30px;
+    color: white;
 }
 
 .card .contenido a {
-	text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
 	display: inline-block;
-	padding: 10px;
-	margin-top: 20px;
-	color: aqua;
-	border: solid 1px aqua;
-	border-radius: 4px;
-	transition: all 400ms ease;
+    padding: 4px 8px; /* Ajusta el relleno según sea necesario */
+    text-decoration: none;
+    color: white;
+    background-color: #007BFF; /* Color de fondo del botón, puedes ajustarlo */
+    border: 1px solid #007BFF; /* Borde del botón, puedes ajustarlo */
+    border-radius: 5px; /* Esquinas redondeadas del botón */
+    margin: 0 auto;
+    width: fit-content;
+    margin-bottom: 30px;
+    font-size: 18px;
+    margin-top: 20px;
 }
 
 .card .contenido a:hover {
-	background: aqua;
-	color: floralwhite; 
+	background-color: #0056b3; /* Cambia el color de fondo al pasar el mouse, ajusta según sea necesario */
+    border-color: #0056b3; 
 }
 
 /* Lista desplegable */
 .dropdown {
 	margin: 20px;
-    text-align: right;
-    padding-top: 100px;
+    text-align: left;
+    padding-top: 10px;
 }
 
 .select {
@@ -231,13 +245,14 @@ nav .list1 a:hover {
 	font-size: 16px;
 	border: 1px solid #ccc;
 	border-radius: 5px;
-	background-color: #fff;
+	background-color: black;
 	cursor: pointer;
+    color: white;
 }
 
 option {
-	background-color: #fff;
-	color: #333;
+	background-color: black;
+	color: white;
 }
 
 option:checked {
@@ -299,4 +314,408 @@ footer .cluster1{
 }
 .footer .cluster2 small{
     font-size: 15px;
+}
+
+/* Login */
+
+.body-login {
+    padding-top: 150px;
+    padding-bottom: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.login-box {
+    width: 500px;
+    height: 600px;
+    background: #0a1a2a;
+    color: #fff;
+    margin: auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-10%);
+    box-sizing: border-box;
+    padding: 30px 30px;
+}
+
+.login-box .avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 200%;
+    position: absolute;
+    top: -50px;
+    left: calc(45% - 45px);
+}
+
+.login-box h1 {
+    text-align: center;
+    padding: 100px 0 20px;
+    font-size: 35px;
+    margin-bottom: 30px;
+}
+
+.login-box label {
+    font-weight: bold;
+    display: block;
+    font-size: 20px;
+}
+
+.login-box input {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.login-box input[type='text'],
+.login-box input[type='password'] {
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+}
+
+.login-box input[type='submit'] {
+    border: none;
+    outline: none;
+    height: 40px;
+    background: aqua;
+    color: white;
+    font-size: 18px;
+    border-radius: 20px;
+}
+
+.login-box a {
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 20px;
+    color: darkgrey;
+    display: block;
+}
+
+.login-box a:hover {
+    color: white;
+}
+
+/* Registro */
+
+.body-registro {
+    padding-top: 160px;
+    padding-bottom: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.registro-form {
+    width: 500px;
+    height: 900px;
+    background: #0a1a2a;
+    color: #fff;
+    margin: auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-8%);
+    box-sizing: border-box;
+    padding: 30px 30px;
+}
+
+.registro-form .avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 200%;
+    position: absolute;
+    top: -50px;
+    left: calc(45% - 45px);
+}
+
+.registro-form h3 {
+    text-align: center;
+    padding: 100px 0 20px;
+    font-size: 35px;
+    margin-bottom: 30px;
+}  
+
+.form-group label {
+    font-weight: bold;
+    display: block;
+    font-size: 20px;
+}
+
+.form-group input {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.form-group input[type='text'],
+.form-group input[type='password'],
+.form-group input[type='email'] {
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+}
+
+.form-group input[type='submit'] {
+    border: none;
+    outline: none;
+    height: 40px;
+    background: aqua;
+    color: white;
+    font-size: 18px;
+    border-radius: 20px;
+}
+
+.form-group a {
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 20px;
+    color: darkgrey;
+    display: block;
+    text-align: center;
+}
+
+.form-group a:hover {
+    color: white;
+}
+
+/* Detalle Noticias */
+.detalle-body {
+    width: 100%;
+    height: 500px;
+    position: relative;
+    color: white;
+}
+
+.content {
+    width: 1200px;
+    margin-left: 200px;
+    margin-right: 1200px !important; /* Añade !important para asegurarte de que prevalezca */
+    margin-top: 50px;
+}
+
+
+.content article {
+    width: 100%;
+    padding-bottom: 40px;
+
+}
+
+.content .fecha-titulo p {
+    margin-bottom: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.content .fecha-titulo h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 40px;
+}
+
+.content .imagen {
+    width: 100%;
+    text-align: center; /* Para centrar la imagen */
+}
+
+.content .imagen img {
+    max-width: 100%; /* Hace que la imagen sea responsive y no supere el ancho del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen al cambiar el ancho */
+    display: inline-block; /* Permite centrar verticalmente la imagen */
+}
+
+
+.content .cuerpo {
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 50px;
+    margin-bottom: 40px;
+    font-size: 18px;
+}
+
+/* sidebar */
+.side {
+    margin-bottom: 2000px;
+}
+
+/* Comentarios */
+.comentario {
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.comentario h3 {
+    margin-bottom: 10px;
+}
+
+.comentario textarea {
+    width: 600px;
+    height: 100px;
+    margin-bottom: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 10px;
+}
+
+.comentario input[type="submit"] {
+    width: 80px;
+    height: 30px;
+    padding: 5px;
+    margin-bottom: 30px;
+    margin-left: 500px;
+    background-color: #007BFF;
+    border-radius: 5px;
+}
+
+.comentario input[type="submit"]:hover {
+    background-color: #0056b3; /* Cambia el color de fondo al pasar el mouse, ajusta según sea necesario */
+    border-color: #0056b3;
+}
+
+.seccion-comentarios {
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.seccion-comentarios h3 {
+    margin-bottom: 30px;
+    font-size: 20px;
+    margin-left: 50px;
+}
+
+.linea {
+    border-bottom: 1px solid white;
+    margin-bottom: 10px;
+}
+
+.comentario-item {
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.comentario-item .usuario {
+    text-transform: uppercase;
+}
+
+.comentario-item .fecha {
+    font-size: 15px;
+}
+
+.comentario-normal {
+    font-size: 18px;
+    margin-left: 20px;
+}
+
+.boton .eliminar,
+.boton .modificar {
+    display: inline-block;
+    padding: 4px 8px; /* Ajusta el relleno según sea necesario */
+    text-decoration: none;
+    color: white;
+    background-color: #007BFF; /* Color de fondo del botón, puedes ajustarlo */
+    border: 1px solid #007BFF; /* Borde del botón, puedes ajustarlo */
+    border-radius: 5px; /* Esquinas redondeadas del botón */
+    margin-right: 10px; /* Espacio entre los botones, ajusta según sea necesario */
+    margin-bottom: 30px;
+    font-size: 12px;
+    margin-top: 30px;
+}
+
+.boton .eliminar:hover,
+.boton .modificar:hover {
+    background-color: #0056b3; /* Cambia el color de fondo al pasar el mouse, ajusta según sea necesario */
+    border-color: #0056b3; /* Cambia el color del borde al pasar el mouse, ajusta según sea necesario */
+}
+
+.boton p {
+    border-bottom: 1px solid white;
+    margin-bottom: 10px;
+}
+
+.volver-lista {
+    display: inline-block;
+    padding: 4px 8px; /* Ajusta el relleno según sea necesario */
+    text-decoration: none;
+    color: white;
+    background-color: #007BFF; /* Color de fondo del botón, puedes ajustarlo */
+    border: 1px solid #007BFF; /* Borde del botón, puedes ajustarlo */
+    border-radius: 5px; /* Esquinas redondeadas del botón */
+    margin: 0 auto;
+    width: fit-content;
+    margin-bottom: 30px;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+.volver-lista:hover {
+    background-color: #0056b3; /* Cambia el color de fondo al pasar el mouse, ajusta según sea necesario */
+    border-color: #0056b3;
+}
+
+.seccion-modificar-container {
+    width: 700px;
+    height: 500px;
+    background: #0a1a2a;
+    color: #fff;
+    margin: auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-10%);
+    box-sizing: border-box;
+    padding: 30px 30px;
+    margin-top: 120px;
+}
+
+.seccion-modificar {
+    max-width: 800px; /* Ajusta el valor según sea necesario */
+    width: 100%;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center; /* Centra el texto dentro del contenedor */
+    padding-top: 50px;
+}
+
+.seccion-modificar textarea {
+    width: 600px;
+    height: 100px;
+    margin-bottom: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 10px;
+    margin-top: 30px;
+    font-size: 16px;
+}
+
+.seccion-modificar input[type="submit"] {
+    width: 160px;
+    height: 30px;
+    padding: 5px;
+    margin-bottom: 30px;
+    background-color: #007BFF;
+    border-radius: 5px;
+}
+
+.seccion-modificar input[type="submit"]:hover {
+    background-color: #0056b3; /* Cambia el color de fondo al pasar el mouse, ajusta según sea necesario */
+    border-color: #0056b3;
+}
+
+.volver-detalle {
+    display: inline-block;
+    padding: 4px 8px; /* Ajusta el relleno según sea necesario */
+    text-decoration: none;
+    color: white;
+    background-color: #007BFF; /* Color de fondo del botón, puedes ajustarlo */
+    border: 1px solid #007BFF; /* Borde del botón, puedes ajustarlo */
+    border-radius: 5px; /* Esquinas redondeadas del botón */
+    margin: 0 auto;
+    width: fit-content;
+    margin-bottom: 30px;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+.volver-detalle:hover {
+    background-color: #0056b3; /* Cambia el color de fondo al pasar el mouse, ajusta según sea necesario */
+    border-color: #0056b3;
 }

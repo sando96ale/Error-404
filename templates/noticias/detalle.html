@@ -5,31 +5,58 @@
 
 
 {% block contenido %}
-	<h1>ACA VOY A DETALLAR UNA NOTICIA</h1>
-		<img src="{{noticia.imagen.url}}" width="500" height="500">
-		
-		<p>TITULO: {{noticia.titulo}}</p>
-		
-		<p>FECHA: {{noticia.fecha}}</p>
-		<p>CATEGORIA: {{noticia.categoria_noticia}}</p>
-		<p>CUERPO: {{noticia.cuerpo}}</p>
-		<br><br>
-		<br>
-		<form method="POST" action="{% url 'noticias:comentar' %}">{% csrf_token %}
-			<textarea name="comentario" maxlength="1500"> </textarea>
-			<input type="text" name="id_noticia" value="{{noticia.pk}}" hidden=""> 
-			<input type="submit" value="GUARDAR">
-		</form>
-		<br><br><br>
-		<h3>COMENTARIOS</h3>
-		{% for com in comentarios %}
-		{% if user == com.usuario %}
-			<a href="">borrar</a>
-		{% endif %}
-		<strong>FECHA:{{com.fecha}}</strong><br>
-		<strong>USUARIO:{{com.usuario}}</strong><br>
-		<p>{{com.texto}}</p>
-		{% endfor %}
-		<a href="{% url 'noticias:listar' %}">VOLVER</a>
+<body class="detalle-body">
+	<div class="content">
+		<article>
+			<div class="fecha-titulo">
+				<p>Fecha: {{noticia.fecha}}</p>
+				<h1>{{noticia.titulo}}</h1>
+			</div>
+			<div class="imagen">
+				<img src="{{noticia.imagen.url}}">
+			</div>
+			<div class="cuerpo">
+				<p>{{noticia.cuerpo}}</p><br><br>
+				<p>Categoria: {{noticia.categoria_noticia}}</p>
+			</div>
+			
+			<form class="comentario" method="POST" action="{% url 'noticias:comentar' %}">{% csrf_token %}
+				<h3>Haz tu comentario</h3>
+				<textarea name="comentario" maxlength="1500"> </textarea>
+				<input type="text" name="id_noticia" value="{{noticia.pk}}" hidden=""> 
+				<input type="submit" value="GUARDAR">
+			</form>
+			<div class="seccion-comentarios">
+				<h3>COMENTARIOS</h3>
+				<p class="linea"></p>
+				{% for com in comentarios %}
+					<div class="comentario-item">
+						<strong class="fecha">Fecha:{{ com.fecha_modificacion|default:com.fecha }}</strong><br><br>
+						<strong class="usuario">{{ com.usuario }}</strong><br>
+					</div>
+					<div class="comentario-normal">
+						<p>{{ com.texto }}</p>
+					</div>
+					<div class="boton">
+						{% if user == com.usuario %}
+							<a class="eliminar" href="{% url 'noticias:eliminar_comentario' com.id %}">Eliminar Comentario</a>
+							<a class="modificar" href="{% url 'noticias:modificar_comentario' com.id %}">Modificar Comentario</a>
+						{% endif %}
+						<p></p>
+					</div>
+					
+				{% endfor %}
+
+				<a class="volver-lista" href="{% url 'noticias:listar' %}">VOLVER</a>
+			</div>
+		</article>
+	</div>
+	<div>
+		<aside class="aside">
+			
+		</aside>		
+	</div>
+</body>
+	
 {% endblock contenido %}
 

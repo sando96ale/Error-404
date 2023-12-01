@@ -3,33 +3,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>IA| {% block titulo %}{% endblock titulo %}</title>
+	<title>IA -  {% block titulo %}{% endblock titulo %}</title>
 	<script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" 
+	integrity="sha512-jBkA7+TvsRNbWy0yND5Pbz2i5Zl2WM+aD3Pz1HFX1ZFvqPifSUC/5AizZyNFsQECobk39rYl5XzQKrKFMy6IXg==" crossorigin="anonymous" />
 	<link rel="stylesheet" type="text/css" href="{% static 'main.css' %}">
 </head>
 
 <!-- Navbar -->
 <body>
-
 	<header>
 		<nav>
-			<img src="{% static 'img/icono.png' %}" width="70px" height="70px">
+			<img src="{% static 'img/icono.png' %}" width="60px" height="60px">
 			<div class="menu">
 				<ul class="list">
-					<li><a href="{% url 'home' %}">Inicio</a></li>
-					<li><a href="{% url 'nosotros' %}">Nosotros</a></li>
-					<li><a href="{% url 'noticias:listar' %}">Noticias</a></li>
+					<li><a href="{% url 'home' %}"><i class="fas fa-home"></i> Inicio</a></li>
+					<li><a href="{% url 'nosotros' %}"><i class="fas fa-user"></i> Nosotros</a></li>
+					<li><a href="{% url 'noticias:listar' %}"><i class="fas fa-newspaper"></i> Noticias</a></li>
 				</ul>
 				<ul class="list1">
 					<li>
 						{% if user.is_authenticated %}
 							<li>
+								<img src="{% static 'img/user.png' %}">
 								<strong class="user" style="text-transform: uppercase;">Hola {{ user.username }}</strong>
-								<a href="{% url 'logout' %}">CERRAR SESIÓN</a>
+								<a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> CERRAR SESIÓN</a>
 							</li>
 						{% else %}
-							<a href="{% url 'login' %}">INICIAR SESIÓN</a>
-							<a href="{% url 'usuarios:registro' %}">Registrarse</a>
+							<a href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i> INICIAR SESIÓN</a>
+							<a href="{% url 'usuarios:registro' %}"><i class="fas fa-user-plus"></i> REGISTRARSE</a>
 						{% endif %}
 					</li>
 				</ul>
@@ -73,6 +75,5 @@
 			<p>Quitilipi - Chaco.</p></small>
 		</div>
 	</footer>
-
 </body>
 </html>

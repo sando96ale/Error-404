@@ -1,11 +1,24 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block contenido %}
-			<form method="POST">{%csrf_token%}
-				{{form.errors}}
-				<input type="text" name="username" placeholder="USUARIO">
-				<input type="password" name="password" placeholder="PASSWORD">
+<div class="body-login">
+	<div class="login-box">
+		<img class="avatar" src="{% static 'img/login/logo-login.png' %}" alt="">
+		<h1>Ingresa a tu cuenta</h1>
+		<form method="POST">{% csrf_token %}
+			{{form.errors}}
+			<label for="nombre">Usuario</label>
+			<input type="text" name="username">
+			<label for="password">Contraseña</label>
+			<input type="password" name="password">
 
-				<input type="submit" name="" value="ENVIAR">
-			</form>
+			<input type="submit" name="" value="INGRESAR">
+
+			<a href="">¿Olvidaste la contraseña?</a><br>
+			<a href="{% url 'usuarios:registro' %}">Registrarse</a>
+		</form>
+	</div>
+</div>
+	
 {% endblock %}

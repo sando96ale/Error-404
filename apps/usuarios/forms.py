@@ -1,5 +1,4 @@
 from django import forms
-
 from django.contrib.auth.forms import UserCreationForm
 from .models import Usuario
 
@@ -11,6 +10,7 @@ class RegistroForm(UserCreationForm):
         label='Contraseña', widget=forms.PasswordInput, required=True)
     password2 = forms.CharField(
         label='Confirmar Contraseña', widget=forms.PasswordInput, required=True)
+    avatar = forms.ImageField(label='Avatar', required=False)
 
     class Meta:
         model = Usuario
@@ -20,5 +20,6 @@ class RegistroForm(UserCreationForm):
             'username',
             'email',
             'password1',
-            'password2'
+            'password2',
+            'avatar'
         ]

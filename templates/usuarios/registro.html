@@ -3,17 +3,29 @@
 {% block title %}Registro{% endblock %}
 {% block contenido %}
 
-<main role="main">
-  <div class="container">
-    <div class="row mt-3">
-      <div class="col-md-9 mx-auto mb-5">
-        <form action="" method="post">{% csrf_token %}         
-         <h3 class="mb-4">Registro</h3>
-          {{form.as_p}}
-          <p><input type="submit" class="btn btn-primary btn-block" value="Confirmar"></p>
-        </form>
-      </div>
+<div class="body-registro">
+  <form method="Post" class="registro-form">{% csrf_token %}
+    <img class="avatar" src="{% static 'img/login/logo-login.png' %}" alt="">
+    <h3>Registrarse</h3>
+    <div class="form-group">
+      <label for="{{ form.first_name.id }}">Nombre</label>
+      {{ form.first_name }}
+      <label for="{{ form.last_name.id }}">Apellido</label>
+      {{ form.last_name }}
+      <label for="{{ form.username.id }}">Nombre de Usuario</label>
+      {{ form.username }}
+      <label for="{{ form.email.id }}">Email</label>
+      {{ form.email }}
+      <label for="{{ form.password1.id }}">Contraseña</label>
+      {{ form.password1 }}
+      <label for="{{ form.password2.id }}">Confirmar Contraseña</label>
+      {{ form.password2 }}
+
+      <input type="submit" name="" value="CONFIRMAR">
+
+      <a href="{% url 'login' %}">Ya tengo una cuenta</a>
     </div>
-  </div>
-</main>
+  </form>
+</div>
+
 {% endblock contenido %}

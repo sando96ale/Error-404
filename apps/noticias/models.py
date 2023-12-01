@@ -25,4 +25,12 @@ class Comentario(models.Model):
 	fecha = models.DateTimeField(auto_now_add=True)
 
 	def __str__(self):
-		return f"{noticia}->{texto}"
+		return f"{self.noticia}->{self.texto}"
+	
+	def puede_eliminar(self, usuario):
+		return usuario == self.usuario
+	
+	def puede_modificar(self, usuario):
+		return usuario == self.usuario
+	
+	
