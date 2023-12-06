@@ -39,5 +39,6 @@ urlpatterns = [
     # URL DE APLICACION
     path('Noticias/', include('apps.noticias.urls')),
     path('Usuario/',include('apps.usuarios.urls')),
+    # path('Crear-noticia', include('apps.noticias.urls'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

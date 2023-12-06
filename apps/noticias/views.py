@@ -2,28 +2,42 @@ from django.shortcuts import render, redirect, get_object_or_404, HttpResponse
 from django.contrib.auth.decorators import login_required
 from .models import Noticia, Categoria, Comentario
 from django.urls import reverse_lazy
-import random
 from django.http import HttpResponseBadRequest
+from django.contrib.auth.decorators import user_passes_test
+from .forms import CrearNoticiaForm
 
-@login_required
+def es_personal(user):
+    return user.is_staff
+
 def Listar_Noticias(request):
-	contexto = {}
+    contexto = {}
 
-	id_categoria = request.GET.get('id',None)
+    id_categoria = request.GET.get('id', None)
+    orden = request.GET.get('orden', None)
 
-	if id_categoria:
-		n = Noticia.objects.filter(categoria_noticia = id_categoria)
-	else:
-		n = Noticia.objects.all() #RETORNA UNA LISTA DE OBJETOS
+    noticias = Noticia.objects.all()
 
-	contexto['noticias'] = n
+    if id_categoria:
+        noticias = noticias.filter(categoria_noticia=id_categoria)
 
-	cat = Categoria.objects.all().order_by('nombre')
-	contexto['categorias'] = cat
+    if orden == 'asc':
+        noticias = noticias.order_by('fecha')
+    elif orden == 'desc':
+        noticias = noticias.order_by('-fecha')
+    elif orden == 'alpha_asc':
+        noticias = noticias.order_by('titulo')
+    elif orden == 'alpha_desc':
+        noticias = noticias.order_by('-titulo')
 
-	return render(request, 'noticias/listar.html', contexto)
+    contexto['noticias'] = noticias
 
-@login_required
+    cat = Categoria.objects.all().order_by('nombre')
+    contexto['categorias'] = cat
+
+    return render(request, 'noticias/listar.html', contexto)
+
+
+
 def Detalle_Noticias(request, pk):
 	contexto = {}
 
@@ -34,8 +48,6 @@ def Detalle_Noticias(request, pk):
 	contexto['comentarios'] = c
 
 	return render(request, 'noticias/detalle.html',contexto)
-
-
 
 @login_required
 def Comentar_Noticia(request):
@@ -48,7 +60,6 @@ def Comentar_Noticia(request):
 
 	return redirect(reverse_lazy('noticias:detalle', kwargs={'pk': noti}))
 
-
 @login_required
 def eliminar_comentario(request, comentario_id):
     comentario = get_object_or_404(Comentario, pk=comentario_id)
@@ -57,44 +68,85 @@ def eliminar_comentario(request, comentario_id):
         comentario.delete()
     return redirect('noticias:detalle', pk=comentario.noticia.pk)
 
-
 @login_required
 def Modificar_Comentario(request, comentario_id):
     comentario = get_object_or_404(Comentario, pk=comentario_id)
 
-    # Verificar si el usuario es el propietario del comentario
+    
     if not comentario.puede_modificar(request.user):
         return HttpResponseBadRequest("No tienes permisos para modificar este comentario.")
 
     if request.method == 'POST':
         nuevo_texto = request.POST.get('nuevo_texto', None)
 
-        # Modificar el comentario si el nuevo texto es válido
+        
         if nuevo_texto:
             comentario.texto = nuevo_texto
             comentario.save()
 
-            # Redirigir a la página de detalle después de la modificación
+            
             return redirect('noticias:detalle', pk=comentario.noticia.pk)
 
-    # Renderizar el formulario de modificación si no se ha enviado el formulario
+    
     return render(request, 'noticias/modificar_comentario.html', {'comentario': comentario})
 
 
-@login_required
-def Inicio(request):
-    contexto = {}
+def crear_noticia(request):
+    if request.method == 'POST':
+        formulario = CrearNoticiaForm(request.POST, request.FILES)
+        if formulario.is_valid():
+            nueva_noticia = formulario.save()
+            return redirect('noticias:detalle', pk=nueva_noticia.pk) 
+    else:
+        formulario = CrearNoticiaForm()
 
-    # Obtener las 5 noticias más recientes ordenadas por fecha descendente
-    noticias_recientes = Noticia.objects.all().order_by('-fecha')[:5]
-    contexto['noticias'] = noticias_recientes
+    return render(request, 'noticias/crear_noticia.html', {'formulario': formulario})
 
-    # Obtener todas las categorías
-    cat = Categoria.objects.all().order_by('nombre')
-    contexto['categorias'] = cat
+@user_passes_test(es_personal)
+def eliminar_noticia(request, pk):
+    noticia = get_object_or_404(Noticia, pk=pk)
+    noticia.delete()
+    return redirect('noticias:listar')
 
-    return render(request, 't_home.html', contexto)
+@user_passes_test(es_personal)
+def eliminar_comentario2(request, comentario_id):
+    comentario = get_object_or_404(Comentario, pk=comentario_id)
+    comentario.delete()
+    return redirect('noticias:detalle', pk=comentario.noticia.pk)
 
+@user_passes_test(es_personal)
+def Modificar_Comentario2(request, comentario_id):
+    comentario = get_object_or_404(Comentario, pk=comentario_id)
+
+    # Verificar si el usuario es staff o el autor del comentario
+    if request.user.is_staff or request.user == comentario.usuario:
+        if request.method == 'POST':
+            nuevo_texto = request.POST.get('nuevo_texto', None)
+
+            if nuevo_texto:
+                comentario.texto = nuevo_texto
+                comentario.save()
+
+                return redirect('noticias:detalle', pk=comentario.noticia.pk)
+
+        return render(request, 'noticias/modificar_comentario.html', {'comentario': comentario})
+    else:
+        # Si no es staff ni el autor del comentario, redirige a alguna página de error o muestra un mensaje
+        return HttpResponseBadRequest("No tienes permisos para modificar este comentario.")
+
+@user_passes_test(es_personal)
+def editar_noticia(request, pk):
+    noticia = get_object_or_404(Noticia, pk=pk)
+
+    if request.method == 'POST':
+        formulario = CrearNoticiaForm(request.POST, request.FILES, instance=noticia)
+        if formulario.is_valid():
+            formulario.save()
+            return redirect('noticias:detalle', pk=noticia.pk)
+    else:
+        formulario = CrearNoticiaForm(instance=noticia)
+
+    return render(request, 'noticias/editar_noticia.html', {'formulario': formulario, 'noticia': noticia})
 
 #{'nombre':'name', 'apellido':'last name', 'edad':23}
 #EN EL TEMPLATE SE RECIBE UNA VARIABLE SEPARADA POR CADA CLAVE VALOR

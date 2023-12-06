@@ -1,0 +1,11 @@
+<!-- En noticias/templates/noticias/crear_noticia.html -->
+{% extends 'base.html' %}
+
+{% block contenido %}
+  <h1>Crear Noticia</h1>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ formulario.as_p }}
+    <button type="submit">Guardar Noticia</button>
+  </form>
+{% endblock %}

@@ -1,0 +1,17 @@
+{%if is_paginated %}
+    <div style="border: 1px solid blue; float: left right; display: block; margin: 20px; padding: 5px;">
+        <span>Paginador:</span>
+
+        {% if page_obj.has_previous %}
+        <span> ir a <a href="?page={{page_obj.previous_page_number}}">Atras</a></span>
+        {% endif %}
+
+        <span> | pagina: {{page_obj.number}} |</span>
+
+        {% if page_obj.has_next %}
+        <span> ir a : <a href="?page={{page_obj.next_page_number}}">Siguiente</a></span>
+        {% endif %}
+
+        <span> | {{page_obj.paginator.num_pages}} paginas</span>
+    </div>
+{% endif %}

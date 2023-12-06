@@ -163,6 +163,56 @@ nav .list1 img {
     margin-right: -10px;
 }
 
+/* Menu desplegable */
+.user-dropdown {
+    position: relative;
+}
+
+.user-dropdown .dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: -25px;
+    background-color: #0a1a2a;
+    min-width: 210px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    padding-bottom: 16px;
+}
+
+.user-dropdown:hover .dropdown-content {
+    display: block;
+    opacity: 1;
+    border-radius: 0;
+    padding: 20px 0;
+}
+
+.dropdown-content a {
+    color: #0a141d;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.user-dropdown .dropdown-content a {
+    width: 100%;
+    display: block;
+    box-sizing: border-box; /* Incluye el padding y el borde en el ancho total */
+    padding: 12px 16px;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 0;
+    text-align: center;
+}
+
 /* Lista de noticias */
 .container{
 	width: 100%;
@@ -555,6 +605,12 @@ footer .cluster1{
     margin-bottom: 10px;
     font-family: Arial, Helvetica, sans-serif;
     padding: 10px;
+    color: #ffffff;
+    font-size: 18px;
+}
+
+.comentario textarea[placeholder="Comentario"] {
+    color: rgba(0, 0, 0, 0.2);
 }
 
 .comentario input[type="submit"] {
@@ -564,6 +620,7 @@ footer .cluster1{
     margin-bottom: 30px;
     margin-left: 500px;
     background-color: #007BFF;
+    color: white;
     border-radius: 5px;
 }
 
@@ -590,8 +647,8 @@ footer .cluster1{
 }
 
 .comentario-item {
-    margin-bottom: 20px;
-    padding: 10px;
+    margin-bottom: 40px;
+    padding: 0;
 }
 
 .comentario-item .usuario {
@@ -604,7 +661,14 @@ footer .cluster1{
 
 .comentario-normal {
     font-size: 18px;
-    margin-left: 20px;
+    margin-left: 0;
+    border-bottom: 1px solid white; /* Añade una línea blanca debajo del comentario */
+    padding-bottom: 30px; /* Ajusta según sea necesario para separar la línea del texto */
+}
+
+.boton {
+    display: flex;
+    justify-content: flex-end;
 }
 
 .boton .eliminar,
@@ -617,9 +681,9 @@ footer .cluster1{
     border: 1px solid #007BFF; /* Borde del botón, puedes ajustarlo */
     border-radius: 5px; /* Esquinas redondeadas del botón */
     margin-right: 10px; /* Espacio entre los botones, ajusta según sea necesario */
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     font-size: 12px;
-    margin-top: 30px;
+    margin-top: 10px;
 }
 
 .boton .eliminar:hover,
@@ -687,12 +751,13 @@ footer .cluster1{
 }
 
 .seccion-modificar input[type="submit"] {
-    width: 160px;
+    width: 120px;
     height: 30px;
     padding: 5px;
     margin-bottom: 30px;
     background-color: #007BFF;
     border-radius: 5px;
+    font-size: 16px;
 }
 
 .seccion-modificar input[type="submit"]:hover {
@@ -702,7 +767,7 @@ footer .cluster1{
 
 .volver-detalle {
     display: inline-block;
-    padding: 4px 8px; /* Ajusta el relleno según sea necesario */
+    padding: 6px 10px; /* Ajusta el relleno según sea necesario */
     text-decoration: none;
     color: white;
     background-color: #007BFF; /* Color de fondo del botón, puedes ajustarlo */
@@ -711,7 +776,7 @@ footer .cluster1{
     margin: 0 auto;
     width: fit-content;
     margin-bottom: 30px;
-    font-size: 18px;
+    font-size: 16px;
     margin-top: 20px;
 }
 
@@ -719,3 +784,4 @@ footer .cluster1{
     background-color: #0056b3; /* Cambia el color de fondo al pasar el mouse, ajusta según sea necesario */
     border-color: #0056b3;
 }
+

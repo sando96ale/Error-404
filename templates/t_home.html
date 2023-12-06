@@ -24,18 +24,33 @@
 			<p>La IA no te sustituirá, una persona que use IA lo hará</p>
 		</div>
 	</div>
-	<br><br><br>
-
+	
 	<div>
-		<h2>Últimas 5 Noticias</h2>
-		{% for noticia in noticias %}
-			<div>
-				<h3>{{ noticia.titulo }}</h3>
-				<p>Categoría: {{ noticia.categoria_noticia.nombre }}</p>
-				<p>Fecha: {{ noticia.fecha }}</p>
-			</div>
-		{% endfor %}
+		<h2>¿Qué es la IA?</h2>
+		<p>La Inteligencia Artificial es como la magia de la computación. Son programas y máquinas que pueden hacer cosas inteligentes, 
+			como aprender, pensar, entender cosas y resolver problemas, ¡como lo haría una persona!</p>
 	</div>
+	<div>
+		<p>Hoy en día la IA está avanzando muchísimo y está cambiando la forma en que vivimos. Es como tener asistentes mágicos en nuestras 
+			computadoras y teléfonos que hacen cosas increíbles para nosotros.</p>
+	</div>
+	<div>
+		<p>En este blog, vamos a explorar todo lo emocionante que la IA está haciendo en el mundo hoy en día. Únete a nosotros para descubrir 
+			este mundo mágico de la Inteligencia Artificial!</p>
+	</div>
+
+	<h2>Últimas Noticias</h2>
+	<ul>
+		{% for noticia in ultimas_noticias %}
+			<li>
+				<img src="{{ noticia.imagen.url }}" alt="{{ noticia.titulo }}">
+				<h3>{{ noticia.titulo }}</h3>
+				<p>{{ noticia.contenido }}</p>
+				<p>Fecha de Publicación: {{ noticia.fecha_publicacion }}</p>
+				<!-- Otros campos de la noticia que quieras mostrar -->
+			</li>
+		{% endfor %}
+	</ul>
 
 	<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis in nisi tenetur sequi necessitatibus ad voluptas, voluptatem commodi dolorum eaque nam reiciendis doloremque autem sapiente sunt ipsam, accusamus sed vel?</p>
 </body>

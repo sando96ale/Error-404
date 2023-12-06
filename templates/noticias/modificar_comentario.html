@@ -9,7 +9,7 @@
         <form method="POST" action="{% url 'noticias:modificar_comentario' comentario.id %}">
             {% csrf_token %}
             <textarea name="nuevo_texto" maxlength="1500">{{ comentario.texto }}</textarea>
-            <input type="submit" value="Guardar Modificación">
+            <input type="submit" value="GUARDAR">
         </form>
         <a class="volver-detalle" href="{% url 'noticias:detalle' pk=comentario.noticia.pk %}">VOLVER</a>
     </div>

@@ -28,9 +28,10 @@ class Comentario(models.Model):
 		return f"{self.noticia}->{self.texto}"
 	
 	def puede_eliminar(self, usuario):
-		return usuario == self.usuario
+		return usuario.is_staff or usuario == self.usuario
 	
 	def puede_modificar(self, usuario):
-		return usuario == self.usuario
+		return usuario.is_staff or usuario == self.usuario
+
 	
 	

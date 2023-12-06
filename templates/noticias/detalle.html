@@ -22,7 +22,7 @@
 			
 			<form class="comentario" method="POST" action="{% url 'noticias:comentar' %}">{% csrf_token %}
 				<h3>Haz tu comentario</h3>
-				<textarea name="comentario" maxlength="1500"> </textarea>
+				<textarea name="comentario" maxlength="1500" onfocus="if(this.value=='Comentario...')this.value='';" onblur="if(this.value=='')this.value='Comentario...';">Comentario...</textarea>
 				<input type="text" name="id_noticia" value="{{noticia.pk}}" hidden=""> 
 				<input type="submit" value="GUARDAR">
 			</form>
@@ -39,8 +39,12 @@
 					</div>
 					<div class="boton">
 						{% if user == com.usuario %}
-							<a class="eliminar" href="{% url 'noticias:eliminar_comentario' com.id %}">Eliminar Comentario</a>
-							<a class="modificar" href="{% url 'noticias:modificar_comentario' com.id %}">Modificar Comentario</a>
+							<a class="eliminar" href="{% url 'noticias:eliminar_comentario' com.id %}">Eliminar</a>
+							<a class="modificar" href="{% url 'noticias:modificar_comentario' com.id %}">Editar</a>
+						{% endif %}
+						{% if user.is_staff and user != com.usuario %}
+							<a class="eliminar" href="{% url 'noticias:eliminar_comentario' comentario_id=com.pk %}">Eliminar</a>
+							<a class="modificar" href="{% url 'noticias:modificar_comentario' comentario_id=com.pk %}">Editar</a>
 						{% endif %}
 						<p></p>
 					</div>

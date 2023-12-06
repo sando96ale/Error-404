@@ -6,15 +6,6 @@
 
 {% block contenido %}
 	<h2>HOLA SOY NOSOTROS</h2>
-	<div>
-		<h2>Últimas 5 Noticias</h2>
-		{% for noticia in noticias %}
-			<div>
-				<h3>{{ noticia.titulo }}</h3>
-				<p>Categoría: {{ noticia.categoria_noticia.nombre }}</p>
-				<p>Fecha: {{ noticia.fecha }}</p>
-			</div>
-		{% endfor %}
-	</div>
+	
 {% endblock contenido %}
 

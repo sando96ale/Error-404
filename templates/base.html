@@ -18,17 +18,22 @@
 			<div class="menu">
 				<ul class="list">
 					<li><a href="{% url 'home' %}"><i class="fas fa-home"></i> Inicio</a></li>
-					<li><a href="{% url 'nosotros' %}"><i class="fas fa-user"></i> Nosotros</a></li>
-					<li><a href="{% url 'noticias:listar' %}"><i class="fas fa-newspaper"></i> Noticias</a></li>
+					<li><a href="{% url 'noticias:listar' %}"><i class="fas fa-newspaper"></i> Categorias</a></li>
+					<li><a href="{% url 'nosotros' %}"><i class="fas fa-user"></i> Acerca de</a></li>
+					<li><a href=""><i class="fas fa-envelope"></i> Contacto</a></li>
+					{% if user.is_staff %}
+                    	<li><a href="{% url 'noticias:crear_noticia' %}"><i class="fas fa-edit"></i> Crear Noticia</a></li>
+                	{% endif %}
 				</ul>
 				<ul class="list1">
-					<li>
+					<li class="user-dropdown">
 						{% if user.is_authenticated %}
-							<li>
-								<img src="{% static 'img/user.png' %}">
-								<strong class="user" style="text-transform: uppercase;">Hola {{ user.username }}</strong>
-								<a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> CERRAR SESIÓN</a>
-							</li>
+							<img src="{% static 'img/user.png' %}">
+							<strong class="user" style="text-transform: uppercase;">Hola {{ user.username }}</strong>
+							<ul class="dropdown-content">
+								<li><a href="{% url 'usuarios:mi_cuenta' %}">MI CUENTA</a></li>
+								<li><a href="{% url 'logout' %}"> CERRAR SESIÓN</a></li>
+							</ul>
 						{% else %}
 							<a href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i> INICIAR SESIÓN</a>
 							<a href="{% url 'usuarios:registro' %}"><i class="fas fa-user-plus"></i> REGISTRARSE</a>

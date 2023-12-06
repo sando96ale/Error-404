@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+  <h2>Cambio de Contraseña</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Cambiar Contraseña</button>
+  </form>
+  <a href="{% url 'usuarios:mi_cuenta' %}">Cancelar</a>
+{% endblock contenido %}

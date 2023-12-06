@@ -8,14 +8,27 @@
 <body>
 	<!-- Lista desplegable -->
 	<div class="dropdown">
-		<select id="categorias" name="categorias" onchange="window.location.href=this.value" class="select">
-			<option class="option" value="{% url 'noticias:listar' %}">Seleccionar Categoría</option>
-			<option class="option" value="{% url 'noticias:listar' %}">TODAS</option>
-			{% for cat in categorias %}
-				<option class="option" value="?id={{cat.pk}}">{{cat.nombre}}</option>
-			{% endfor %}
+		<select id="filtrar" name="filtrar" onchange="window.location.href=this.value" class="select">
+			<option class="option" value="{% url 'noticias:listar' %}">Filtrar y Ordenar</option>
+	
+			<optgroup label="Categorías">
+				<option class="option" value="{% url 'noticias:listar' %}">TODAS</option>
+				{% for cat in categorias %}
+					<option class="option" value="?id={{cat.pk}}&orden={{orden}}">{{cat.nombre}}</option>
+				{% endfor %}
+			</optgroup>
+	
+			<optgroup label="Por Antigüedad">
+				<option class="option" value="?orden=asc&id={{id_categoria}}">Más antiguas primero</option>
+				<option class="option" value="?orden=desc&id={{id_categoria}}">Más recientes primero</option>
+			</optgroup>
+	
+			<optgroup label="Por Orden Alfabético">
+				<option class="option" value="?orden=alpha_asc&id={{id_categoria}}">A-Z</option>
+				<option class="option" value="?orden=alpha_desc&id={{id_categoria}}">Z-A</option>
+			</optgroup>
 		</select>
-	</div>
+	</div>	
 
 	<!-- Listado de noticias -->
 	<div class="container">
@@ -29,21 +42,18 @@
 				<p>FECHA: {{noti.fecha}}</p>
 				<p>CATEGORIA: {{noti.categoria_noticia}}</p>
 				<a href="{% url 'noticias:detalle' noti.pk %}">Leer mas...</a>
+				{% if user.is_staff %}
+					<a href="{% url 'noticias:eliminar_noticia' pk=noti.pk %}">Eliminar Noticia</a>
+					<a href="{% url 'noticias:editar_noticia' pk=noti.pk %}">Editar Noticia</a>
+    			{% endif %}
 			</div>
 		</div>
+		{% if forloop.counter|divisibleby:3 and not forloop.last %}
+            </div><div class="container">
+        {% endif %}
 		{% endfor %}
 	</div>
 
-	<div>
-		<h2>Últimas 5 Noticias</h2>
-		{% for noticia in noticias %}
-			<div>
-				<h3>{{ noticia.titulo }}</h3>
-				<p>Categoría: {{ noticia.categoria_noticia.nombre }}</p>
-				<p>Fecha: {{ noticia.fecha }}</p>
-			</div>
-		{% endfor %}
-	</div>
 </body>
 
 {% endblock contenido %}
