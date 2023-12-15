@@ -5,6 +5,16 @@
 
 
 {% block contenido %}
+
+<div class="contenedor-aside">
+	<aside>
+		<img src="{% static 'img/IA-1.jpg' %}" alt="">
+		<h2>Titulo</h2>
+		<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt aliquam repellendus natus sit beatae inventore dicta autem adipisci praesentium explicabo.</p>
+		<a href="#"><button>Leer más</button></a>
+	</aside>
+</div>
+
 <body class="detalle-body">
 	<div class="content">
 		<article>
@@ -24,7 +34,7 @@
 				<h3>Haz tu comentario</h3>
 				<textarea name="comentario" maxlength="1500" onfocus="if(this.value=='Comentario...')this.value='';" onblur="if(this.value=='')this.value='Comentario...';">Comentario...</textarea>
 				<input type="text" name="id_noticia" value="{{noticia.pk}}" hidden=""> 
-				<input type="submit" value="GUARDAR">
+				<input type="submit" value="Guardar">
 			</form>
 			<div class="seccion-comentarios">
 				<h3>COMENTARIOS</h3>
@@ -39,19 +49,27 @@
 					</div>
 					<div class="boton">
 						{% if user == com.usuario %}
-							<a class="eliminar" href="{% url 'noticias:eliminar_comentario' com.id %}">Eliminar</a>
-							<a class="modificar" href="{% url 'noticias:modificar_comentario' com.id %}">Editar</a>
+							<a class="eliminar" href="{% url 'noticias:eliminar_comentario' com.id %}" title="Eliminar">
+								<i class="fas fa-trash-alt"></i>
+							</a>
+							<a class="modificar" href="{% url 'noticias:modificar_comentario' com.id %}" title="Editar">
+								<i class="fas fa-edit"></i>
+							</a>
 						{% endif %}
 						{% if user.is_staff and user != com.usuario %}
-							<a class="eliminar" href="{% url 'noticias:eliminar_comentario' comentario_id=com.pk %}">Eliminar</a>
-							<a class="modificar" href="{% url 'noticias:modificar_comentario' comentario_id=com.pk %}">Editar</a>
+							<a class="eliminar" href="{% url 'noticias:eliminar_comentario' comentario_id=com.pk %}" title="Eliminar">
+								<i class="fas fa-trash-alt"></i>
+							</a>
+							<a class="modificar" href="{% url 'noticias:modificar_comentario' comentario_id=com.pk %}" title="Editar">
+								<i class="fas fa-edit"></i>
+							</a>
 						{% endif %}
 						<p></p>
 					</div>
 					
 				{% endfor %}
 
-				<a class="volver-lista" href="{% url 'noticias:listar' %}">VOLVER</a>
+				<a class="volver-lista" href="{% url 'noticias:listar' %}">Volver</a>
 			</div>
 		</article>
 	</div>

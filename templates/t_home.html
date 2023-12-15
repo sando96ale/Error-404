@@ -25,34 +25,38 @@
 		</div>
 	</div>
 	
-	<div>
+	<div class="portada">
 		<h2>¿Qué es la IA?</h2>
 		<p>La Inteligencia Artificial es como la magia de la computación. Son programas y máquinas que pueden hacer cosas inteligentes, 
 			como aprender, pensar, entender cosas y resolver problemas, ¡como lo haría una persona!</p>
+		<p class="division"></p>
 	</div>
-	<div>
+	<div class="portada-2">
 		<p>Hoy en día la IA está avanzando muchísimo y está cambiando la forma en que vivimos. Es como tener asistentes mágicos en nuestras 
 			computadoras y teléfonos que hacen cosas increíbles para nosotros.</p>
+		<p class="division"></p>
 	</div>
-	<div>
+	<div class="portada-3">
 		<p>En este blog, vamos a explorar todo lo emocionante que la IA está haciendo en el mundo hoy en día. Únete a nosotros para descubrir 
 			este mundo mágico de la Inteligencia Artificial!</p>
+		<p class="division"></p>
 	</div>
 
-	<h2>Últimas Noticias</h2>
-	<ul>
+	<h2 class="titulo-noti-reciente">Noticias Recientes</h2>
+	<ul class="contenedor-noticias-recientes">
 		{% for noticia in ultimas_noticias %}
 			<li>
 				<img src="{{ noticia.imagen.url }}" alt="{{ noticia.titulo }}">
-				<h3>{{ noticia.titulo }}</h3>
-				<p>{{ noticia.contenido }}</p>
-				<p>Fecha de Publicación: {{ noticia.fecha_publicacion }}</p>
-				<!-- Otros campos de la noticia que quieras mostrar -->
+				<div class="contenido-noti">
+					<h3>{{ noticia.titulo }}</h3>
+					<p>Categoria: {{ noticia.categoria_noticia }}</p>
+					<p>Fecha de Publicación: {{ noticia.fecha }}</p>
+					<a href="{% url 'noticias:detalle' pk=noticia.pk %}">Leer más</a>
+				</div>
 			</li>
 		{% endfor %}
 	</ul>
 
-	<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis in nisi tenetur sequi necessitatibus ad voluptas, voluptatem commodi dolorum eaque nam reiciendis doloremque autem sapiente sunt ipsam, accusamus sed vel?</p>
 </body>
 {% endblock contenido %}
 

@@ -31,6 +31,7 @@ urlpatterns = [
     path('', views.Home, name = 'home'),
     #No necesariamente estos 3 valores (parametors) se deben llamar igual
     path('Nosotros/', views.Nosotros, name = 'nosotros'),
+    path('Contacto/', views.Contacto, name = 'contacto'),
 
     #LOGIN
     path('login/',auth.LoginView.as_view(template_name='usuarios/login.html'),name='login'),

@@ -1,17 +1,32 @@
 {% extends 'base.html' %}
 
 {% block contenido %}
-  <h2>Mi Cuenta</h2>
+<div class="user-profile">
+  <h3>Perfil</h3>
+  <h1>{{ request.user.username }}</h1>
+  {% if request.user.profile.avatar %}
+      <img src="{{ request.user.profile.avatar.url }}" alt="Avatar del usuario">
+  {% endif %}
+  
 
   <!-- Información del usuario -->
   <div class="user-info">
-    <p>Usuario: {{ request.user.username }}</p>
-    <p>Nombre: {{ request.user.first_name }}</p>
-    <p>Apellido: {{ request.user.last_name }}</p>
-    <p>Correo: {{ request.user.email }}</p>
-    <!-- Otros campos según sea necesario -->
-    <p>Fecha de Registro: {{ request.user.date_joined }}</p>
-    <a href="{% url 'usuarios:editar_perfil' %}">Editar Perfil</a>
-    <a href="{% url 'usuarios:cambio_contrasena' %}">Cambiar Contraseña</a>
+    <div class="datos">
+      <p>- Usuario: {{ request.user.username }}</p>
+      <p>- Nombre: {{ request.user.first_name }}</p>
+      <p>- Apellido: {{ request.user.last_name }}</p>
+      <p>- Correo: {{ request.user.email }}</p>
+      <p>- Fecha de Registro: {{ request.user.date_joined }}</p>
+    </div>
+    <div class="botones">
+      <p class="linea-perfil"></p>
+      <a href="{% url 'usuarios:editar_perfil' %}">Editar Perfil</a>
+      <p class="linea-perfil"></p>
+      <a href="{% url 'usuarios:cambio_contrasena' %}">Cambiar Contraseña</a>
+      <p class="linea-perfil"></p>
+    </div>
   </div>
+  
+</div>
+  
 {% endblock contenido %}

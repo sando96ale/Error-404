@@ -8,6 +8,7 @@
 	padding: 0;
     padding-top: 80px;
     background-color: black;
+    position: relative;
 }
 
 /* Imagenes Inicio */
@@ -84,7 +85,7 @@ nav {
     background-color: #0a1a2a;
     display: flex;
     align-items: center;
-	border-bottom: 1px solid white;
+	/* border-bottom: 1px solid white; */
 }
 
 nav .menu {
@@ -203,7 +204,7 @@ nav .list1 img {
 .user-dropdown .dropdown-content a {
     width: 100%;
     display: block;
-    box-sizing: border-box; /* Incluye el padding y el borde en el ancho total */
+    box-sizing: border-box; 
     padding: 12px 16px;
     text-decoration: none;
     color: #ffffff;
@@ -218,21 +219,22 @@ nav .list1 img {
 	width: 100%;
 	display: flex;
 	max-width: 1800px;
-	justify-content: space-around;
+	/* justify-content: space-around; */
     padding-top: 10px;
     padding-left: 100px;
+    width: calc(100% - 320px);
 }
 
 .card {
 	flex: 1;
-	margin: 10px;
+	margin: 20px;
 	border-radius: 6px;
 	overflow: hidden;
 	background: black;
 	box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
 	cursor: default;
 	transition: all 400ms ease;
-	max-width: 500px;
+	max-width: 430px;
 }
 
 .card:hover {
@@ -242,11 +244,11 @@ nav .list1 img {
 
 .card img {
 	width: 100%;
-	height: 400px;
+	height: 300px;
 }
 
 .card .contenido {
-	padding: 25px;
+	padding: 5px;
 	text-align: center;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -265,7 +267,7 @@ nav .list1 img {
 .card .contenido a {
     font-family: Arial, Helvetica, sans-serif;
 	display: inline-block;
-    padding: 4px 8px; /* Ajusta el relleno según sea necesario */
+    padding: 6px 8px; /* Ajusta el relleno según sea necesario */
     text-decoration: none;
     color: white;
     background-color: #007BFF; /* Color de fondo del botón, puedes ajustarlo */
@@ -274,7 +276,7 @@ nav .list1 img {
     margin: 0 auto;
     width: fit-content;
     margin-bottom: 30px;
-    font-size: 18px;
+    font-size: 13px;
     margin-top: 20px;
 }
 
@@ -288,6 +290,7 @@ nav .list1 img {
 	margin: 20px;
     text-align: left;
     padding-top: 10px;
+    padding-right: 10px;
 }
 
 .select {
@@ -298,6 +301,7 @@ nav .list1 img {
 	background-color: black;
 	cursor: pointer;
     color: white;
+    padding-right: 10px;
 }
 
 option {
@@ -330,12 +334,14 @@ footer .cluster1{
     align-items: center;
 }
 .footer .cluster1 .box figure img{
-    width: 250px;
+    width: 400px;
+    margin-left: -50px;
 }
 .footer .cluster1 .box h2{
     color: #fff;
     margin-bottom: 25px;
     font-size: 20px;
+    margin-top: 120px;
 }
 .footer .cluster1 .box p{
     color: #efefef;
@@ -429,7 +435,7 @@ footer .cluster1{
     border: none;
     outline: none;
     height: 40px;
-    background: aqua;
+    background: blue;
     color: white;
     font-size: 18px;
     border-radius: 20px;
@@ -511,7 +517,7 @@ footer .cluster1{
     border: none;
     outline: none;
     height: 40px;
-    background: aqua;
+    background: blue;
     color: white;
     font-size: 18px;
     border-radius: 20px;
@@ -584,8 +590,48 @@ footer .cluster1{
 }
 
 /* sidebar */
-.side {
-    margin-bottom: 2000px;
+.contenedor-aside aside {
+    float: right;
+    width: 320px;
+    border-right: 6px;
+    /* box-shadow: 10px 10px 20px 20px;  Para sobras  */
+    margin-top: 50px;
+    background-color: black;
+    padding-right: 20px;
+    color: white;
+}
+
+.contenedor-aside aside h4 {
+    text-align: center;
+    padding-bottom: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.contenedor-aside aside img {
+    width: 100%;
+}
+
+.contenedor-aside aside h2,
+.contenedor-aside aside p {
+    margin-top: 20px;
+    padding: 0px 20px;
+}
+
+.contenedor-aside aside button {
+    margin-top: 20px;
+    margin-left: 20px;
+    padding: 8px 20px;
+    font-size: 14px;
+    background: #007BFF;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 6px;
+    align-items: center;
+}
+
+.contenedor-aside aside button:hover {
+    opacity: 0.9;
 }
 
 /* Comentarios */
@@ -607,6 +653,7 @@ footer .cluster1{
     padding: 10px;
     color: #ffffff;
     font-size: 18px;
+    background-color: #5e5d5c;
 }
 
 .comentario textarea[placeholder="Comentario"] {
@@ -622,6 +669,9 @@ footer .cluster1{
     background-color: #007BFF;
     color: white;
     border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
 }
 
 .comentario input[type="submit"]:hover {
@@ -669,6 +719,7 @@ footer .cluster1{
 .boton {
     display: flex;
     justify-content: flex-end;
+    border: none;
 }
 
 .boton .eliminar,
@@ -699,7 +750,7 @@ footer .cluster1{
 
 .volver-lista {
     display: inline-block;
-    padding: 4px 8px; /* Ajusta el relleno según sea necesario */
+    padding: 10px 15px; /* Ajusta el relleno según sea necesario */
     text-decoration: none;
     color: white;
     background-color: #007BFF; /* Color de fondo del botón, puedes ajustarlo */
@@ -708,7 +759,7 @@ footer .cluster1{
     margin: 0 auto;
     width: fit-content;
     margin-bottom: 30px;
-    font-size: 18px;
+    font-size: 14px;
     margin-top: 20px;
 }
 
@@ -720,7 +771,7 @@ footer .cluster1{
 .seccion-modificar-container {
     width: 700px;
     height: 500px;
-    background: #0a1a2a;
+    background: black;
     color: #fff;
     margin: auto;
     position: relative;
@@ -728,7 +779,8 @@ footer .cluster1{
     transform: translateY(-10%);
     box-sizing: border-box;
     padding: 30px 30px;
-    margin-top: 120px;
+    margin-top: 140px;
+    border: 2px solid white;
 }
 
 .seccion-modificar {
@@ -748,6 +800,8 @@ footer .cluster1{
     padding: 10px;
     margin-top: 30px;
     font-size: 16px;
+    background-color: #5e5d5c;
+    color: white;
 }
 
 .seccion-modificar input[type="submit"] {
@@ -758,6 +812,9 @@ footer .cluster1{
     background-color: #007BFF;
     border-radius: 5px;
     font-size: 16px;
+    border: none;
+    cursor: pointer;
+    color: white;
 }
 
 .seccion-modificar input[type="submit"]:hover {
@@ -784,4 +841,682 @@ footer .cluster1{
     background-color: #0056b3; /* Cambia el color de fondo al pasar el mouse, ajusta según sea necesario */
     border-color: #0056b3;
 }
+
+/* Portada */
+.portada, .portada-2, .portada-3 {
+    width: 60%;
+    margin: auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    /* height: 25vh;  */
+    color: white;
+}
+
+.portada h2, .portada p {
+    font-size: 30px;
+    /* margin: 10px 0; */
+}
+
+.portada h2 {
+    font-size: 40px;
+    margin-top: 60px;
+}
+
+.portada-2,
+.portada-3 {
+    font-size: 30px;
+    margin-top: 0;
+}
+
+.portada-3 {
+    margin-bottom: 0;
+}
+
+.division {
+    border-bottom: 1px solid white;
+    margin-bottom: 60px;
+    margin-top: 60px;
+}
+
+/* Noticias recientes */
+
+.titulo-noti-reciente{
+    text-align: center;
+    font-size: 40px;
+    padding-top: 50px;
+    margin-bottom: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+
+.contenedor-noticias-recientes {
+    list-style: none;
+    padding: 0;
+    padding-bottom: 40px;
+    position: relative;
+    color: white;
+}
+
+.contenedor-noticias-recientes li {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    margin-left: 300px;
+    margin-bottom: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.contenedor-noticias-recientes li:nth-child(even) {
+    flex-direction: row-reverse;
+    /* margin-left: auto; */
+    margin-right: 300px;
+}
+
+.contenedor-noticias-recientes img {
+    border-radius: 50%;
+    width: 200px; /* Ajusta el tamaño según sea necesario */
+    height: 200px; /* Ajusta el tamaño según sea necesario */
+    object-fit: cover;
+    margin-right: 50px;
+    transition: transform 0.3s ease;
+}
+
+.contenedor-noticias-recientes img:hover {
+    transform: scale(1.1); /* Cambia el tamaño al pasar el mouse por encima */
+}
+
+.contenedor-noticias-recientes h3, 
+.contenedor-noticias-recientes p {
+    margin: 5px 0;
+    font-size: 20px;
+}
+
+.contenedor-noticias-recientes li:nth-child(even) h3,
+.contenedor-noticias-recientes li:nth-child(even) p {
+    margin-right: 60px;
+    text-align: right;
+}
+
+.contenedor-noticias-recientes li:nth-child(even) .contenido-noti {
+    text-align: right;
+}
+.contenedor-noticias-recientes li:nth-child(even) a {
+    text-align: right;
+    margin-right: 60px;
+}
+
+.contenedor-noticias-recientes .contenido-noti a {
+    display: inline-block;
+    padding: 10px 15px; /* Ajusta el relleno según sea necesario */
+    text-decoration: none;
+    color: white;
+    background-color: #007BFF; /* Color de fondo del botón, puedes ajustarlo */
+    border: 1px solid #007BFF; /* Borde del botón, puedes ajustarlo */
+    border-radius: 5px; /* Esquinas redondeadas del botón */
+    margin-right: 10px; /* Espacio entre los botones, ajusta según sea necesario */
+    margin-bottom: 10px;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/* Crear Noticia */
+.contenedor-crear-noti {
+    text-align: center;
+    padding-top: 70px;
+    padding-bottom: 70px;
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+
+.contenedor-crear-noti h1 {
+    margin-left: 2%;
+}
+
+.contenedor-crear-noti::before,
+.contenedor-crear-noti::after {
+    content: "";
+    height: 100%;
+    width: 1px; /* Ajustado el ancho de la línea */
+    background-color: white;
+    position: absolute;
+    top: 0;
+}
+
+.contenedor-crear-noti::before {
+    left: 600px;
+}
+
+.contenedor-crear-noti::after {
+    right: 600px;
+}
+  
+.formulario-centrado {
+    max-width: 400px; 
+    padding: 50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: white; 
+    margin: auto;
+    background: black;
+    padding-right: 20px;
+    font-size: 20px;
+}
+
+.formulario-centrado input,
+.formulario-centrado textarea,
+.formulario-centrado button {
+    margin-bottom: 20px; 
+    margin-top: 20px;
+    margin-left: -11%;
+}
+
+.formulario-centrado input,
+.formulario-centrado textarea {
+    width: 120%; /* Establece el ancho al 100% del contenedor */
+    padding: 15px; /* Añade relleno para mejorar la apariencia */
+    box-sizing: border-box; /* Incluye el relleno en el ancho total */
+    border: 1px solid #ccc;
+    background-color: #5e5d5c;
+    color: white;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+}
+
+.formulario-centrado input[type="file"] {
+    background-color: black;
+    color: white; /* Cambia el color del texto para que sea visible en el fondo negro */
+    border: 0;
+    margin-left: 4%;
+    cursor: pointer;
+}
+
+.formulario-centrado input[type="file"]::-webkit-file-upload-button {
+    border: 0; 
+    padding: 5px 8px; /* Ajusta el padding según tus preferencias */
+    background-color: #007BFF;
+    color: white;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.formulario-centrado button {
+    margin-bottom: 10px;
+    margin-top: 40px;
+    margin-left: 2%;
+    padding: 10px 25px;
+    cursor: pointer;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 6px;
+}
+
+.formulario-centrado button:hover {
+    background-color: #0056b3;
+}
+
+.formulario-centrado select {
+    background-color: #333;  /* Cambia el color de fondo según tus preferencias */
+    color: white;  /* Cambia el color del texto según tus preferencias */
+    font-size: 16px;
+    padding: 4px;
+    margin-left: 5px;
+}
+  
+/* Mi Cuenta */
+.user-profile {
+    padding-top: 120px;
+    padding-bottom: 60px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0 700px;
+    position: relative;
+    color: white;
+}
+
+.user-profile::before,
+.user-profile::after {
+    content: "";
+    height: 100%;
+    width: 1px; /* Ancho de la línea blanca */
+    background-color: white;
+    position: absolute;
+    top: 0;
+}
+
+.user-profile::before {
+    left: -100px; /* Alinea la línea a la izquierda */
+}
+
+.user-profile::after {
+    right: -100px; /* Alinea la línea a la derecha */
+}
+
+.user-profile h3 {
+    margin-right: 400px;
+    font-size: 30px;
+}
+
+.user-profile h1 {
+    margin-right: 300px;
+    font-size: 60px;
+}
+
+
+.user-info .datos {
+    display: inline-block;
+    text-align: left;
+    padding-top: 50px;
+    font-size: 20px;
+    padding-bottom: 80px;
+}
+
+.user-info p {
+    margin-bottom: 10px; /* Ajusta el valor según tus necesidades */
+}
+
+.user-info .datos p {
+    margin-bottom: 20px; /* Ajusta el valor según tus necesidades */
+}
+
+.user-info .botones a {
+    display: block;  /* Hace que los enlaces sean bloques para que estén uno debajo del otro */
+    margin-bottom: 10px;  
+    text-align: left;
+    font-size: 20px;
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+}
+
+.user-info .botones a:hover {
+    background-color: #555; /* Cambia el color de fondo al pasar el ratón sobre el enlace */
+}
+
+.linea-perfil {
+    border-bottom: 1px solid white;
+}
+
+.crear-categoria-container {
+    text-align: center;
+}
+
+.crear-categoria {
+    display: inline-block;
+    margin-bottom: 10px;
+    margin-top: 10px;  
+    text-align: left;
+    font-size: 20px;
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    width: 30%;
+}
+
+.crear-categoria:hover {
+    background-color: #555;
+}
+
+.linea-categoria {
+    width: 30%;
+    margin: 0 auto;
+    border-bottom: 1px solid white;
+}
+
+/* Editar Perfil */
+.editar-perfil {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto; /* Ajusta esto según tus necesidades */
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top: 90px; /* Ajusta esto para dejar espacio con la navbar */
+    padding-bottom: 80px; /* Ajusta esto para dejar espacio con el footer */
+    position: relative;
+    color: white;
+}
+
+.editar-perfil h2 {
+    font-size: 30px;
+}
+
+.editar-perfil::before,
+.editar-perfil::after {
+    content: "";
+    height: 100%;
+    width: 1px; /* Ajustado el ancho de la línea */
+    background-color: white;
+    position: absolute;
+    top: 0;
+}
+
+.editar-perfil::before {
+    left: 600px;
+}
+
+.editar-perfil::after {
+    right: 600px;
+}
+
+.perfil-form {
+    max-width: 400px; /* Ajusta esto según tus necesidades */
+    width: 100%;
+    margin-top: 40px;
+    padding-bottom: 20px;
+    position: relative;
+}
+
+.perfil-form label {
+    display: block;
+    margin-bottom: 5px; /* Ajusta esto según tus necesidades */
+}
+
+.perfil-form input,
+.perfil-form select,
+.perfil-form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 20px; /* Ajusta esto según tus necesidades */
+    box-sizing: border-box;
+    border: none;
+    border-radius: 5px;
+}
+
+.perfil-form input:not([type="file"]){
+    background-color: #5e5d5c;
+    color: white;
+    font-size: 16px;
+}
+
+.perfil-form input[type="file"]::-webkit-file-upload-button {
+    background-color: #007BFF;
+    color: white;
+    padding: 4px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    margin-bottom: 20px;
+}
+
+.perfil-form button {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cancelar {
+    margin-top: 10px; /* Ajusta esto según tus necesidades */
+    display: inline-block;
+    padding: 10px 15px; /* Ajusta el relleno según sea necesario */
+    text-decoration: none;
+    color: white;
+    background-color: #007BFF; /* Color de fondo del botón, puedes ajustarlo */
+    border: 1px solid #007BFF; /* Borde del botón, puedes ajustarlo */
+    border-radius: 5px; /* Esquinas redondeadas del botón */
+    margin: 0 auto;
+    width: fit-content;
+    margin-bottom: 30px;
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+.perfil-form .help-text {
+    max-width: 150px; /* Ajusta esto según tus necesidades */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 12px; /* Ajusta el tamaño de fuente según tus necesidades */
+}
+
+.perfil-form p {
+    max-width: 700px; /* Ajusta esto según tus necesidades */
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 20px; /* Ajusta el tamaño de fuente según tus necesidades */
+}
+
+/* Seccion Nosotros */
+.nosotros {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+
+.nosotros h2 {
+    font-size: 30px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 50px;
+    margin-left: 30%;
+}
+
+.nosotros1,
+.nosotros2,
+.nosotros3 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 80px;
+    max-width: 1500px;
+    font-size: 20px;
+    margin-left: 12%;
+}
+
+.nosotros2 {
+    flex-direction: row-reverse; /* Invierte el orden de los elementos en .nosotros2 */
+}
+
+.nosotros1 {
+    margin-left: 19%;
+    max-width: 1200px;
+}
+
+.fondo-nosotros1,
+.fondo-nosotros2 {
+    background-color: #0d2033;
+}
+
+.nosotros1 img {
+    width: 400px;
+    height: 400px;
+}
+.nosotros2 img,
+.nosotros3 img {
+    width: 500px;
+    height: 400px;
+}
+
+.nosotros1 img,
+.nosotros2 img,
+.nosotros3 img {
+    margin-right: 30px;
+}
+
+.equipo {
+    text-align: center;
+    padding-bottom: 50px;
+    font-size: 24px;
+}
+
+/* Crear Categoria */
+
+.contenedor-total {
+    max-width: 500px;
+    margin: auto;
+    background-color: black;
+    border: 2px solid white;
+    border-radius: 10px; /* Ajusta según sea necesario para redondear las esquinas */
+    padding: 20px; /* Ajusta según sea necesario para agregar espacio interno */
+    margin-top: 90px;
+}
+
+.conteiner-crear-categoria {
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    color: white;
+}
+
+.conteiner-crear-categoria h1 {
+    font-size: 26px;
+    margin-bottom: 30px;
+}
+
+.formulario-crear-categoria {
+    max-width: 400px;
+    padding: 20px;
+    background-color: white;
+    margin-bottom: 20px;
+    background-color: black;
+}
+
+.formulario-crear-categoria #id_nombre {
+    width: 100%; /* Ajusta según sea necesario */
+    height: 30px;
+    padding: 16px;
+    margin-top: 20px;
+    background-color: #5e5d5c;
+    color: white;
+    border: none;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+}
+
+.formulario-crear-categoria label[for="id_nombre"] {
+    margin-bottom: 40px;
+    font-size: 23px; /* Ajusta el tamaño de fuente de la etiqueta del campo Nombre */
+}
+
+.formulario-crear-categoria label[for="id_nombre"] {
+    margin-bottom: 40px;
+}
+
+.formulario-crear-categoria label[for="id_campo_adicional"] {
+    margin-bottom: 40px;
+}
+
+.formulario-crear-categoria button {
+    margin-top: 40px;
+    font-size: 14px;
+    padding: 10px 28px;
+    background-color: #007BFF;
+    border: 0;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-bottom: 50px;
+    color: white;
+}
+
+.formulario-crear-categoria button:hover {
+    background-color: #0056b3;
+}
+
+.crear-categoria-cancelar a {
+    font-size: 14px;
+    text-decoration: none;
+    background-color: #007BFF;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 10px 28px;
+}
+
+.crear-categoria-cancelar a:hover {
+    background-color: #0056b3; /* Cambia el color de fondo al pasar el mouse, ajusta según sea necesario */
+}
+
+/* Cambio Contraseña */
+.cambio-contrasena {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    color: white;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.cambio-contrasena h2 {
+    font-size: 32px;
+}
+
+.cambio-contrasena::before,
+.cambio-contrasena::after {
+    content: "";
+    height: 100%;
+    width: 2px; /* Ancho de la línea */
+    background-color: white; /* Color de la línea */
+    position: absolute;
+    top: 0;
+}
+
+.cambio-contrasena::before {
+    left: 600px; /* Ajusta la posición a la izquierda */
+}
+
+.cambio-contrasena::after {
+    right: 600px; /* Ajusta la posición a la derecha */
+}
+
+.cambio-contrasena h2,
+.cambio-contrasena form,
+.cambio-contrasena button,
+.cambio-contrasena a {
+    margin-top: 40px;
+}
+
+.cambio-contrasena button {
+    font-size: 14px;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    cursor: pointer;
+    border: none;
+    color: white;
+    border-radius: 6px;
+    margin-bottom: 60px;
+}
+
+.cambio-contrasena input[type="password"] {
+    font-size: 18px;
+    width: 100%; /* Asegura que el ancho del campo de contraseña sea del 100% */
+    margin-top: 20px; /* Espacio entre los campos de contraseña */
+    margin-bottom: 20px;
+    background-color: #5e5d5c;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+}
+
+.cambio-contrasena a {
+    margin-top: 70px; /* Ajusta esto según tus necesidades */
+    display: inline-block;
+    padding: 10px 15px; /* Ajusta el relleno según sea necesario */
+    text-decoration: none;
+    color: white;
+    background-color: #007BFF; /* Color de fondo del botón, puedes ajustarlo */
+    border: 1px solid #007BFF; /* Borde del botón, puedes ajustarlo */
+    border-radius: 5px; /* Esquinas redondeadas del botón */
+    margin: 0 auto;
+    width: fit-content;
+    margin-bottom: 30px;
+    font-size: 14px;
+}
+
+/* Contacto */
 

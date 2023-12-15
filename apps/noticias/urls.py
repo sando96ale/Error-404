@@ -26,4 +26,6 @@ urlpatterns = [
     
 	path('modificar_comentario/<int:comentario_id>/', views.Modificar_Comentario2, name='modificar_comentario'),
     
+	path('crear_categoria/', views.crear_categoria, name='crear_categoria'),
+    
 ]

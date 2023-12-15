@@ -1,0 +1,37 @@
+<!-- Sección de Contacto -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo %}NOTICIAS{% endblock titulo %}
+
+
+{% block contenido %}
+<section id="contacto">
+    <h2>Contacto</h2>
+
+    <!-- Información de Contacto -->
+    <div class="contact-info">
+        <p>¡Estamos aquí para ayudarte! Ponte en contacto con nosotros.</p>
+        <ul>
+            <li><i class="fas fa-envelope"></i> Correo Electrónico: sandoval.alexis.emanuel@gmail.com</li>
+            <li><i class="fas fa-phone"></i> Teléfono: +5493644674907</li>
+            <li><i class="fas fa-map-marker-alt"></i> Dirección: Buenos Aires 46, Quitilipi, Argentina</li>
+        </ul>
+    </div>
+
+    <!-- Mapa de Ubicación -->
+    <iframe src="" frameborder="0"></iframe>
+
+    <!-- Redes Sociales -->
+    <div class="social-media">
+        <p>Síguenos en nuestras redes sociales para obtener las últimas actualizaciones:</p>
+        <ul>
+            <li><a href="https://www.facebook.com/tudominio" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></li>
+            <li><a href="https://twitter.com/tudominio" target="_blank"><i class="fab fa-twitter"></i> Twitter</a></li>
+            <li><a href="https://www.linkedin.com/company/tudominio" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+            <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+            <!-- Agrega más redes sociales según sea necesario -->
+        </ul>
+    </div>
+</section>
+{% endblock contenido %}

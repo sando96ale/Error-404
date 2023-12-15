@@ -1,10 +1,11 @@
-from django.shortcuts import render, redirect, get_object_or_404, HttpResponse
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import Noticia, Categoria, Comentario
 from django.urls import reverse_lazy
 from django.http import HttpResponseBadRequest
 from django.contrib.auth.decorators import user_passes_test
-from .forms import CrearNoticiaForm
+from .forms import CrearNoticiaForm, CrearCategoriaForm
+from django.contrib import messages
 
 def es_personal(user):
     return user.is_staff
@@ -102,10 +103,22 @@ def crear_noticia(request):
 
     return render(request, 'noticias/crear_noticia.html', {'formulario': formulario})
 
+def crear_categoria(request):
+    if request.method == 'POST':
+        formulario = CrearCategoriaForm(request.POST)
+        if formulario.is_valid():
+            nuevo_categoria = formulario.save()
+            return redirect('noticias:crear_noticia')
+    else:
+        formulario = CrearCategoriaForm()
+
+    return render(request, 'noticias/crear_categoria.html', {'formulario': formulario})
+
 @user_passes_test(es_personal)
 def eliminar_noticia(request, pk):
     noticia = get_object_or_404(Noticia, pk=pk)
     noticia.delete()
+    messages.success(request, 'La noticia ha sido eliminada exitosamente.')
     return redirect('noticias:listar')
 
 @user_passes_test(es_personal)

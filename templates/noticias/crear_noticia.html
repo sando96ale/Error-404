@@ -2,10 +2,17 @@
 {% extends 'base.html' %}
 
 {% block contenido %}
-  <h1>Crear Noticia</h1>
-  <form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ formulario.as_p }}
-    <button type="submit">Guardar Noticia</button>
-  </form>
+  <div class="contenedor-crear-noti">
+    <h1>Crear Noticia</h1>
+    <form method="post" enctype="multipart/form-data" class="formulario-centrado">
+      {% csrf_token %}
+      {{ formulario.as_p }}
+      <button type="submit">Guardar Noticia</button>
+    </form>
+    <div class="crear-categoria-container">
+      <p class="linea-categoria"></p>
+      <a href="{% url 'noticias:crear_categoria' %}" class="crear-categoria">Crear Nueva Categoría</a>
+      <p class="linea-categoria"></p>
+    </div>
+  </div>
 {% endblock %}
