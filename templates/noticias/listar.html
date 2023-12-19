@@ -5,15 +5,26 @@
 
 {% block contenido %}
 
-<div class="contenedor-aside">
+<!-- <div class="contenedor-aside">
 	<aside>
-		<h4>Recomendados</h4>
-		<img src="{% static 'img/IA-1.jpg' %}" alt="">
-		<h2>Titulo titulo titulo titulo titulo</h2>
-		<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt aliquam repellendus natus sit beatae inventore dicta autem adipisci praesentium explicabo.</p>
-		<a href="#"><button>Leer más</button></a>
+		<div class="aside1">
+			<h4>Recomendados</h4>
+			<img src="{% static 'img/IA-1.jpg' %}" alt="">
+			<h2>Titulo titulo titulo titulo titulo</h2>
+			<a href="#"><button>Leer más</button></a>
+		</div>
+		<div class="aside2">
+			<img src="{% static 'img/IA-1.jpg' %}" alt="">
+			<h2>Titulo titulo titulo titulo titulo</h2>
+			<a href="#"><button>Leer más</button></a>
+		</div>
+		<div class="aside3">
+			<img src="{% static 'img/IA-1.jpg' %}" alt="">
+			<h2>Titulo titulo titulo titulo titulo</h2>
+			<a href="#"><button>Leer más</button></a>
+		</div>
 	</aside>
-</div>
+</div> -->
 
 <body>
 	<!-- Lista desplegable -->
@@ -51,15 +62,17 @@
 				<h3>{{noti.titulo}}</h3>
 				<p>FECHA: {{noti.fecha}}</p>
 				<p>CATEGORIA: {{noti.categoria_noticia}}</p>
-				<a href="{% url 'noticias:detalle' noti.pk %}">Leer mas</a>
-				{% if user.is_staff %}
-					<a href="{% url 'noticias:eliminar_noticia' pk=noti.pk %}" title="Eliminar">
-						<i class="fas fa-trash-alt"></i>
-					</a>
-					<a href="{% url 'noticias:editar_noticia' pk=noti.pk %}" title="Editar">
-						<i class="fas fa-edit"></i>
-					</a>
-    			{% endif %}
+				<div class="botones">
+					<a href="{% url 'noticias:detalle' noti.pk %}">Leer más</a>
+					{% if user.is_staff %}
+						<a href="{% url 'noticias:eliminar_noticia' pk=noti.pk %}" title="Eliminar">
+							<i class="fas fa-trash-alt"></i>
+						</a>
+						<a href="{% url 'noticias:editar_noticia' pk=noti.pk %}" title="Editar">
+							<i class="fas fa-edit"></i>
+						</a>
+					{% endif %}
+				</div>
 			</div>
 		</div>
 		{% if forloop.counter|divisibleby:3 and not forloop.last %}
@@ -67,7 +80,6 @@
         {% endif %}
 		{% endfor %}
 	</div>
-
 </body>
 
 {% endblock contenido %}

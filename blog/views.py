@@ -18,3 +18,5 @@ def Contacto(request):
 	return render(request, 't_contacto.html')
 
 
+
+

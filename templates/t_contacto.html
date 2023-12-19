@@ -7,31 +7,40 @@
 
 {% block contenido %}
 <section id="contacto">
-    <h2>Contacto</h2>
+    <div class="contacto-contenedor">
+        <div class="contacto-info">
+            <h2>Contacto</h2>
 
-    <!-- Información de Contacto -->
-    <div class="contact-info">
-        <p>¡Estamos aquí para ayudarte! Ponte en contacto con nosotros.</p>
-        <ul>
-            <li><i class="fas fa-envelope"></i> Correo Electrónico: sandoval.alexis.emanuel@gmail.com</li>
-            <li><i class="fas fa-phone"></i> Teléfono: +5493644674907</li>
-            <li><i class="fas fa-map-marker-alt"></i> Dirección: Buenos Aires 46, Quitilipi, Argentina</li>
-        </ul>
-    </div>
-
-    <!-- Mapa de Ubicación -->
-    <iframe src="" frameborder="0"></iframe>
-
-    <!-- Redes Sociales -->
-    <div class="social-media">
-        <p>Síguenos en nuestras redes sociales para obtener las últimas actualizaciones:</p>
-        <ul>
-            <li><a href="https://www.facebook.com/tudominio" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></li>
-            <li><a href="https://twitter.com/tudominio" target="_blank"><i class="fab fa-twitter"></i> Twitter</a></li>
-            <li><a href="https://www.linkedin.com/company/tudominio" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
-            <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
-            <!-- Agrega más redes sociales según sea necesario -->
-        </ul>
+            <!-- Información de Contacto -->
+            <div class="info-contactos">
+                <p>¡Estamos aquí para ayudarte! Ponte en contacto con nosotros.</p>
+                <ul>
+                    <h1><i class="fa fa-envelope" aria-hidden="true"></i> Correo Electronico</h1>
+                    <p>sandoval.alexis.emanuel@gmail.com</p>
+                    <h1><i class="fa fa-phone" aria-hidden="true"></i> Teléfono</h1>
+                    <p>+54 9 364 4674907</p>
+                    <h1><i class="fa fa-map-marker" aria-hidden="true"></i> Dirección</h1>
+                    <p>Buenos Aires 46, Quitilipi - Chaco, Argentina</p>
+                </ul>
+            </div>
+            <!-- Redes Sociales -->
+            <div class="social-media">
+                <p>Síguenos en nuestras redes sociales para obtener las últimas actualizaciones:</p>
+                <ul>
+                    <li><a href="https://www.facebook.com/tudominio"><i class="fab fa-facebook"></i></a></li>
+                    <li><a href="https://twitter.com/tudominio"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="https://www.linkedin.com/company/tudominio"><i class="fab fa-linkedin"></i></a></li>
+                    <li><a href="https://www.instagram.com/company/tudominio"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="https://www.youtube.com/company/tudominio"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+                    <!-- Agrega más redes sociales según sea necesario -->
+                </ul>
+            </div>
+        </div>
+        <div class="mapa">
+            <!-- Mapa de Ubicación -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1258.2489643919805!2d-60.21945382700445!3d-26.876014007766504!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sar!4v1702683593964!5m2!1ses-419!2sar" width="650" height="540" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
     </div>
 </section>
+
 {% endblock contenido %}

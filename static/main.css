@@ -4,6 +4,10 @@
 	box-sizing: border-box;
 }
 
+body, html {
+    height: 100%;
+}
+
 .bloque{
 	padding: 0;
     padding-top: 80px;
@@ -214,19 +218,21 @@ nav .list1 img {
     text-align: center;
 }
 
-/* Lista de noticias */
+/* Listar Noticias */
+
 .container{
 	width: 100%;
-	display: flex;
-	max-width: 1800px;
-	/* justify-content: space-around; */
+    display: flex;
+	max-width: 600px;
     padding-top: 10px;
-    padding-left: 100px;
+    padding-left: 180px;
     width: calc(100% - 320px);
+    padding-bottom: 40px;
+    background-color: black;
 }
 
 .card {
-	flex: 1;
+	flex: 0 0 calc(33.333% - 20px);
 	margin: 20px;
 	border-radius: 6px;
 	overflow: hidden;
@@ -235,6 +241,10 @@ nav .list1 img {
 	cursor: default;
 	transition: all 400ms ease;
 	max-width: 430px;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .card:hover {
@@ -248,42 +258,49 @@ nav .list1 img {
 }
 
 .card .contenido {
-	padding: 5px;
 	text-align: center;
     font-family: Arial, Helvetica, sans-serif;
+    padding: 10px;
+    background-color: black;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .card .contenido p {
 	line-height: 1.5;
 	color: #ffffff;
+    font-size: 14px;
 }
 
 .card .contenido h3 {
 	font-weight: 200px;
 	margin-bottom: 30px;
     color: white;
+    font-size: 18px;
 }
 
-.card .contenido a {
+.card .contenido .botones a {
     font-family: Arial, Helvetica, sans-serif;
 	display: inline-block;
-    padding: 6px 8px; /* Ajusta el relleno según sea necesario */
+    padding: 6px 8px; 
     text-decoration: none;
     color: white;
-    background-color: #007BFF; /* Color de fondo del botón, puedes ajustarlo */
-    border: 1px solid #007BFF; /* Borde del botón, puedes ajustarlo */
-    border-radius: 5px; /* Esquinas redondeadas del botón */
-    margin: 0 auto;
+    background-color: #007BFF;
+    border: 1px solid #007BFF;
+    border-radius: 5px;
+    margin: auto;
     width: fit-content;
     margin-bottom: 30px;
     font-size: 13px;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .card .contenido a:hover {
-	background-color: #0056b3; /* Cambia el color de fondo al pasar el mouse, ajusta según sea necesario */
+	background-color: #0056b3; 
     border-color: #0056b3; 
-}
+} 
 
 /* Lista desplegable */
 .dropdown {
@@ -572,12 +589,13 @@ footer .cluster1{
 
 .content .imagen {
     width: 100%;
+    height: auto;
     text-align: center; /* Para centrar la imagen */
 }
 
 .content .imagen img {
-    max-width: 100%; /* Hace que la imagen sea responsive y no supere el ancho del contenedor */
-    height: auto; /* Mantiene la proporción de la imagen al cambiar el ancho */
+    max-width: 900px; /* Hace que la imagen sea responsive y no supere el ancho del contenedor */
+    height: 100%; /* Mantiene la proporción de la imagen al cambiar el ancho */
     display: inline-block; /* Permite centrar verticalmente la imagen */
 }
 
@@ -587,9 +605,16 @@ footer .cluster1{
     margin-top: 50px;
     margin-bottom: 40px;
     font-size: 18px;
+    max-width: 1030px;
+    padding-left: 200px;
 }
 
 /* sidebar */
+.contenedor-aside {
+    padding-bottom: 0;
+    margin: 0;
+}
+
 .contenedor-aside aside {
     float: right;
     width: 320px;
@@ -599,6 +624,15 @@ footer .cluster1{
     background-color: black;
     padding-right: 20px;
     color: white;
+    height: 100%;
+    overflow-y: auto;
+    min-height: 100%;
+}
+
+.aside1,
+.aside2,
+.aside3 {
+    margin-bottom: 50px;
 }
 
 .contenedor-aside aside h4 {
@@ -617,17 +651,26 @@ footer .cluster1{
     padding: 0px 20px;
 }
 
+.contenedor-aside aside h2 {
+    font-size: 18px;
+    text-align: center;
+}
+
+.contenedor-aside aside p {
+    font-size: 12px;
+}
+
 .contenedor-aside aside button {
     margin-top: 20px;
     margin-left: 20px;
     padding: 8px 20px;
-    font-size: 14px;
+    font-size: 12px;
     background: #007BFF;
     border: none;
     color: white;
     cursor: pointer;
     border-radius: 6px;
-    align-items: center;
+    justify-content: center;
 }
 
 .contenedor-aside aside button:hover {
@@ -843,6 +886,11 @@ footer .cluster1{
 }
 
 /* Portada */
+
+.contenedor-noticias-recientes {
+    margin-bottom: auto;
+}
+
 .portada, .portada-2, .portada-3 {
     width: 60%;
     margin: auto;
@@ -966,7 +1014,7 @@ footer .cluster1{
 .contenedor-crear-noti {
     text-align: center;
     padding-top: 70px;
-    padding-bottom: 70px;
+    padding-bottom: 50px;
     position: relative;
     font-family: Arial, Helvetica, sans-serif;
     color: white;
@@ -974,6 +1022,7 @@ footer .cluster1{
 
 .contenedor-crear-noti h1 {
     margin-left: 2%;
+    padding-bottom: -40px;
 }
 
 .contenedor-crear-noti::before,
@@ -1008,7 +1057,7 @@ footer .cluster1{
 .formulario-centrado input,
 .formulario-centrado textarea,
 .formulario-centrado button {
-    margin-bottom: 20px; 
+    margin-bottom: 10px; 
     margin-top: 20px;
     margin-left: -11%;
 }
@@ -1040,7 +1089,8 @@ footer .cluster1{
     background-color: #007BFF;
     color: white;
     border-radius: 5px;
-    font-size: 14px;
+    font-size: 12px;
+    cursor: pointer;
 }
 
 .formulario-centrado button {
@@ -1053,6 +1103,7 @@ footer .cluster1{
     color: white;
     border: none;
     border-radius: 6px;
+    font-size: 14px;
 }
 
 .formulario-centrado button:hover {
@@ -1065,6 +1116,7 @@ footer .cluster1{
     font-size: 16px;
     padding: 4px;
     margin-left: 5px;
+    font-size: 10px;
 }
   
 /* Mi Cuenta */
@@ -1242,6 +1294,7 @@ footer .cluster1{
     cursor: pointer;
     margin-right: 10px;
     margin-bottom: 20px;
+    font-size: 14px;
 }
 
 .perfil-form button {
@@ -1251,6 +1304,7 @@ footer .cluster1{
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 14px;
 }
 
 .cancelar {
@@ -1281,7 +1335,7 @@ footer .cluster1{
     max-width: 700px; /* Ajusta esto según tus necesidades */
     overflow: hidden;
     white-space: nowrap;
-    font-size: 20px; /* Ajusta el tamaño de fuente según tus necesidades */
+    font-size: 14px; /* Ajusta el tamaño de fuente según tus necesidades */
 }
 
 /* Seccion Nosotros */
@@ -1519,4 +1573,103 @@ footer .cluster1{
 }
 
 /* Contacto */
+#contacto {
+    height: 80vh;
+    display: grid;
+    align-items: start;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.contacto-contenedor {
+    width: 70%;
+    min-height: auto;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.contacto-info {
+    flex: 1;
+    padding: 40px 30px;
+    background-color: #0d2033;
+    color: white;
+}
+
+.contacto-info:nth-child(1) {
+    flex: 30%;
+    background-color: #0d2033;
+    color: white;
+}
+
+.contacto-info:nth-child(2) {
+    flex: 30%;
+    padding: 0;
+}
+
+.contacto-info h2 {
+    font-size: 24px;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.contacto-info h1 {
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+
+.contacto-info h1 i {
+    font-size: 16px;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    background: black;
+    color: white;
+    border-radius: 50px;
+    line-height: 40px;
+    text-align: center;
+}
+
+.contacto-info p {
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.social-media p {
+    font-size: 16px;
+}
+
+.social-media ul {
+    padding: 0;
+    margin: 0;
+}
+
+.social-media ul li {
+    list-style: none;
+    display: inline-block;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+
+.social-media ul li a {
+    display: block;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    background: black;
+    border-radius: 50px;
+}
+
+.social-media ul li a i {
+    font-size: 16px;
+    line-height: 30px;
+    color: black;
+}
+
+.mapa {
+    flex: 1; 
+    padding: 0 20px; 
+}
 

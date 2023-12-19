@@ -16,7 +16,7 @@ def Listar_Noticias(request):
     id_categoria = request.GET.get('id', None)
     orden = request.GET.get('orden', None)
 
-    noticias = Noticia.objects.all()
+    noticias = Noticia.objects.order_by('-fecha')
 
     if id_categoria:
         noticias = noticias.filter(categoria_noticia=id_categoria)
@@ -160,6 +160,7 @@ def editar_noticia(request, pk):
         formulario = CrearNoticiaForm(instance=noticia)
 
     return render(request, 'noticias/editar_noticia.html', {'formulario': formulario, 'noticia': noticia})
+
 
 #{'nombre':'name', 'apellido':'last name', 'edad':23}
 #EN EL TEMPLATE SE RECIBE UNA VARIABLE SEPARADA POR CADA CLAVE VALOR
