@@ -1,11 +1,15 @@
 {% extends 'base.html' %}
 
+{% block titulo %}Editar Noticia - SA{% endblock titulo %}
+
 {% block contenido %}
-    <h1>Editar Noticia</h1>
-    <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ formulario.as_p }}
-        <button type="submit">Guardar Cambios</button>
-    </form>
-    <a href="{% url 'noticias:detalle' pk=noticia.pk %}">Cancelar</a>
+    <div class="editar-noticia">
+        <h1>Editar Noticia</h1>
+        <form method="POST" enctype="multipart/form-data" class="editar-noticia-form">
+            {% csrf_token %}
+            {{ formulario.as_p }}
+            <button type="submit">Guardar Cambios</button>
+        </form>
+        <a class="editar-noti-cancelar" href="{% url 'noticias:detalle' pk=noticia.pk %}">Cancelar</a>
+    </div>
 {% endblock %}

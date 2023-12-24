@@ -6,4 +6,3 @@ class Usuario(AbstractUser):
 
 class PerfilUsuario(models.Model):
     user = models.OneToOneField(Usuario, on_delete=models.CASCADE, related_name='perfilusuario')
-    # Otros campos del perfil

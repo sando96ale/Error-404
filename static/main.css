@@ -6,6 +6,7 @@
 
 body, html {
     height: 100%;
+    overflow-x: hidden
 }
 
 .bloque{
@@ -13,6 +14,21 @@ body, html {
     padding-top: 80px;
     background-color: black;
     position: relative;
+}
+
+/* Barra desplazamiento */
+::-webkit-scrollbar {
+    width: 12px; 
+    background-color: black;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #0056b3;
+    border-radius: 6px; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #007BFF; 
 }
 
 /* Imagenes Inicio */
@@ -89,7 +105,6 @@ nav {
     background-color: #0a1a2a;
     display: flex;
     align-items: center;
-	/* border-bottom: 1px solid white; */
 }
 
 nav .menu {
@@ -226,7 +241,6 @@ nav .list1 img {
 	max-width: 600px;
     padding-top: 10px;
     padding-left: 180px;
-    width: calc(100% - 320px);
     padding-bottom: 40px;
     background-color: black;
 }
@@ -390,7 +404,6 @@ footer .cluster1{
 }
 
 /* Login */
-
 .body-login {
     padding-top: 150px;
     padding-bottom: 0;
@@ -471,7 +484,6 @@ footer .cluster1{
 }
 
 /* Registro */
-
 .body-registro {
     padding-top: 160px;
     padding-bottom: 10px;
@@ -556,7 +568,7 @@ footer .cluster1{
 /* Detalle Noticias */
 .detalle-body {
     width: 100%;
-    height: 500px;
+    height: 100%;
     position: relative;
     color: white;
 }
@@ -564,7 +576,7 @@ footer .cluster1{
 .content {
     width: 1200px;
     margin-left: 200px;
-    margin-right: 1200px !important; /* Añade !important para asegurarte de que prevalezca */
+    margin-right: 1200px !important;
     margin-top: 50px;
 }
 
@@ -590,13 +602,13 @@ footer .cluster1{
 .content .imagen {
     width: 100%;
     height: auto;
-    text-align: center; /* Para centrar la imagen */
+    text-align: center;
 }
 
 .content .imagen img {
-    max-width: 900px; /* Hace que la imagen sea responsive y no supere el ancho del contenedor */
-    height: 100%; /* Mantiene la proporción de la imagen al cambiar el ancho */
-    display: inline-block; /* Permite centrar verticalmente la imagen */
+    max-width: 900px;
+    height: 100%; 
+    display: inline-block;
 }
 
 
@@ -619,7 +631,6 @@ footer .cluster1{
     float: right;
     width: 320px;
     border-right: 6px;
-    /* box-shadow: 10px 10px 20px 20px;  Para sobras  */
     margin-top: 50px;
     background-color: black;
     padding-right: 20px;
@@ -718,7 +729,7 @@ footer .cluster1{
 }
 
 .comentario input[type="submit"]:hover {
-    background-color: #0056b3; /* Cambia el color de fondo al pasar el mouse, ajusta según sea necesario */
+    background-color: #0056b3;
     border-color: #0056b3;
 }
 
@@ -755,8 +766,8 @@ footer .cluster1{
 .comentario-normal {
     font-size: 18px;
     margin-left: 0;
-    border-bottom: 1px solid white; /* Añade una línea blanca debajo del comentario */
-    padding-bottom: 30px; /* Ajusta según sea necesario para separar la línea del texto */
+    border-bottom: 1px solid white;
+    padding-bottom: 30px;
 }
 
 .boton {
@@ -768,13 +779,13 @@ footer .cluster1{
 .boton .eliminar,
 .boton .modificar {
     display: inline-block;
-    padding: 4px 8px; /* Ajusta el relleno según sea necesario */
+    padding: 4px 8px;
     text-decoration: none;
     color: white;
-    background-color: #007BFF; /* Color de fondo del botón, puedes ajustarlo */
-    border: 1px solid #007BFF; /* Borde del botón, puedes ajustarlo */
-    border-radius: 5px; /* Esquinas redondeadas del botón */
-    margin-right: 10px; /* Espacio entre los botones, ajusta según sea necesario */
+    background-color: #007BFF; 
+    border: 1px solid #007BFF; 
+    border-radius: 5px; 
+    margin-right: 10px; 
     margin-bottom: 10px;
     font-size: 12px;
     margin-top: 10px;
@@ -782,8 +793,8 @@ footer .cluster1{
 
 .boton .eliminar:hover,
 .boton .modificar:hover {
-    background-color: #0056b3; /* Cambia el color de fondo al pasar el mouse, ajusta según sea necesario */
-    border-color: #0056b3; /* Cambia el color del borde al pasar el mouse, ajusta según sea necesario */
+    background-color: #0056b3; 
+    border-color: #0056b3; 
 }
 
 .boton p {
@@ -793,12 +804,12 @@ footer .cluster1{
 
 .volver-lista {
     display: inline-block;
-    padding: 10px 15px; /* Ajusta el relleno según sea necesario */
+    padding: 10px 15px; 
     text-decoration: none;
     color: white;
-    background-color: #007BFF; /* Color de fondo del botón, puedes ajustarlo */
-    border: 1px solid #007BFF; /* Borde del botón, puedes ajustarlo */
-    border-radius: 5px; /* Esquinas redondeadas del botón */
+    background-color: #007BFF; 
+    border: 1px solid #007BFF; 
+    border-radius: 5px; 
     margin: 0 auto;
     width: fit-content;
     margin-bottom: 30px;
@@ -807,7 +818,7 @@ footer .cluster1{
 }
 
 .volver-lista:hover {
-    background-color: #0056b3; /* Cambia el color de fondo al pasar el mouse, ajusta según sea necesario */
+    background-color: #0056b3; 
     border-color: #0056b3;
 }
 
@@ -827,11 +838,11 @@ footer .cluster1{
 }
 
 .seccion-modificar {
-    max-width: 800px; /* Ajusta el valor según sea necesario */
+    max-width: 800px; 
     width: 100%;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
-    text-align: center; /* Centra el texto dentro del contenedor */
+    text-align: center; 
     padding-top: 50px;
 }
 
@@ -861,18 +872,18 @@ footer .cluster1{
 }
 
 .seccion-modificar input[type="submit"]:hover {
-    background-color: #0056b3; /* Cambia el color de fondo al pasar el mouse, ajusta según sea necesario */
+    background-color: #0056b3; 
     border-color: #0056b3;
 }
 
 .volver-detalle {
     display: inline-block;
-    padding: 6px 10px; /* Ajusta el relleno según sea necesario */
+    padding: 6px 10px; 
     text-decoration: none;
     color: white;
-    background-color: #007BFF; /* Color de fondo del botón, puedes ajustarlo */
-    border: 1px solid #007BFF; /* Borde del botón, puedes ajustarlo */
-    border-radius: 5px; /* Esquinas redondeadas del botón */
+    background-color: #007BFF; 
+    border: 1px solid #007BFF; 
+    border-radius: 5px; 
     margin: 0 auto;
     width: fit-content;
     margin-bottom: 30px;
@@ -881,12 +892,11 @@ footer .cluster1{
 }
 
 .volver-detalle:hover {
-    background-color: #0056b3; /* Cambia el color de fondo al pasar el mouse, ajusta según sea necesario */
+    background-color: #0056b3; 
     border-color: #0056b3;
 }
 
 /* Portada */
-
 .contenedor-noticias-recientes {
     margin-bottom: auto;
 }
@@ -895,17 +905,12 @@ footer .cluster1{
     width: 60%;
     margin: auto;
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     font-family: Arial, Helvetica, sans-serif;
-    /* height: 25vh;  */
     color: white;
 }
 
 .portada h2, .portada p {
     font-size: 30px;
-    /* margin: 10px 0; */
 }
 
 .portada h2 {
@@ -928,10 +933,12 @@ footer .cluster1{
     margin-bottom: 60px;
     margin-top: 60px;
     max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
 
 /* Noticias recientes */
-
 .titulo-noti-reciente{
     text-align: center;
     font-size: 40px;
@@ -953,28 +960,27 @@ footer .cluster1{
     display: flex;
     align-items: center;
     margin: 20px 0;
-    margin-left: 300px;
+    margin-left: 15%;
     margin-bottom: 90px;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 .contenedor-noticias-recientes li:nth-child(even) {
     flex-direction: row-reverse;
-    /* margin-left: auto; */
-    margin-right: 300px;
+    margin-right: 15%;
 }
 
 .contenedor-noticias-recientes img {
     border-radius: 50%;
-    width: 200px; /* Ajusta el tamaño según sea necesario */
-    height: 200px; /* Ajusta el tamaño según sea necesario */
+    width: 200px; 
+    height: 200px; 
     object-fit: cover;
     margin-right: 50px;
     transition: transform 0.3s ease;
 }
 
 .contenedor-noticias-recientes img:hover {
-    transform: scale(1.1); /* Cambia el tamaño al pasar el mouse por encima */
+    transform: scale(1.1); 
 }
 
 .contenedor-noticias-recientes h3, 
@@ -1003,13 +1009,13 @@ footer .cluster1{
 
 .contenedor-noticias-recientes .contenido-noti a {
     display: inline-block;
-    padding: 10px 15px; /* Ajusta el relleno según sea necesario */
+    padding: 10px 15px; 
     text-decoration: none;
     color: white;
-    background-color: #007BFF; /* Color de fondo del botón, puedes ajustarlo */
-    border: 1px solid #007BFF; /* Borde del botón, puedes ajustarlo */
-    border-radius: 5px; /* Esquinas redondeadas del botón */
-    margin-right: 10px; /* Espacio entre los botones, ajusta según sea necesario */
+    background-color: #007BFF; 
+    border: 1px solid #007BFF; 
+    border-radius: 5px; 
+    margin-right: 10px; 
     margin-bottom: 10px;
     font-size: 14px;
     margin-top: 10px;
@@ -1034,18 +1040,18 @@ footer .cluster1{
 .contenedor-crear-noti::after {
     content: "";
     height: 100%;
-    width: 1px; /* Ajustado el ancho de la línea */
+    width: 1px; 
     background-color: white;
     position: absolute;
     top: 0;
 }
 
 .contenedor-crear-noti::before {
-    left: 600px;
+    left: 30%;
 }
 
 .contenedor-crear-noti::after {
-    right: 600px;
+    right: 30%;
 }
   
 .formulario-centrado {
@@ -1069,9 +1075,9 @@ footer .cluster1{
 
 .formulario-centrado input,
 .formulario-centrado textarea {
-    width: 120%; /* Establece el ancho al 100% del contenedor */
-    padding: 15px; /* Añade relleno para mejorar la apariencia */
-    box-sizing: border-box; /* Incluye el relleno en el ancho total */
+    width: 120%; 
+    padding: 15px; 
+    box-sizing: border-box; 
     border: 1px solid #ccc;
     background-color: #5e5d5c;
     color: white;
@@ -1082,7 +1088,7 @@ footer .cluster1{
 
 .formulario-centrado input[type="file"] {
     background-color: black;
-    color: white; /* Cambia el color del texto para que sea visible en el fondo negro */
+    color: white; 
     border: 0;
     margin-left: 4%;
     cursor: pointer;
@@ -1090,7 +1096,7 @@ footer .cluster1{
 
 .formulario-centrado input[type="file"]::-webkit-file-upload-button {
     border: 0; 
-    padding: 5px 8px; /* Ajusta el padding según tus preferencias */
+    padding: 5px 8px; 
     background-color: #007BFF;
     color: white;
     border-radius: 5px;
@@ -1116,8 +1122,8 @@ footer .cluster1{
 }
 
 .formulario-centrado select {
-    background-color: #333;  /* Cambia el color de fondo según tus preferencias */
-    color: white;  /* Cambia el color del texto según tus preferencias */
+    background-color: #333;  
+    color: white;  
     font-size: 16px;
     padding: 4px;
     margin-left: 5px;
@@ -1128,29 +1134,33 @@ footer .cluster1{
 .user-profile {
     padding-top: 120px;
     padding-bottom: 60px;
-    text-align: center;
     font-family: Arial, Helvetica, sans-serif;
-    margin: 0 700px;
+    margin: 0 auto;
     position: relative;
     color: white;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .user-profile::before,
 .user-profile::after {
     content: "";
     height: 100%;
-    width: 1px; /* Ancho de la línea blanca */
+    width: 1px; 
     background-color: white;
     position: absolute;
     top: 0;
 }
 
 .user-profile::before {
-    left: -100px; /* Alinea la línea a la izquierda */
+    left: -100px; 
 }
 
 .user-profile::after {
-    right: -100px; /* Alinea la línea a la derecha */
+    right: -100px; 
 }
 
 .user-profile h3 {
@@ -1173,15 +1183,15 @@ footer .cluster1{
 }
 
 .user-info p {
-    margin-bottom: 10px; /* Ajusta el valor según tus necesidades */
+    margin-bottom: 10px; 
 }
 
 .user-info .datos p {
-    margin-bottom: 20px; /* Ajusta el valor según tus necesidades */
+    margin-bottom: 20px; 
 }
 
 .user-info .botones a {
-    display: block;  /* Hace que los enlaces sean bloques para que estén uno debajo del otro */
+    display: block;  
     margin-bottom: 10px;  
     text-align: left;
     font-size: 20px;
@@ -1191,7 +1201,7 @@ footer .cluster1{
 }
 
 .user-info .botones a:hover {
-    background-color: #555; /* Cambia el color de fondo al pasar el ratón sobre el enlace */
+    background-color: #555; 
 }
 
 .linea-perfil {
@@ -1230,10 +1240,10 @@ footer .cluster1{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: auto; /* Ajusta esto según tus necesidades */
+    height: auto; 
     font-family: Arial, Helvetica, sans-serif;
-    padding-top: 90px; /* Ajusta esto para dejar espacio con la navbar */
-    padding-bottom: 80px; /* Ajusta esto para dejar espacio con el footer */
+    padding-top: 90px; 
+    padding-bottom: 80px; 
     position: relative;
     color: white;
 }
@@ -1246,22 +1256,22 @@ footer .cluster1{
 .editar-perfil::after {
     content: "";
     height: 100%;
-    width: 1px; /* Ajustado el ancho de la línea */
+    width: 1px; 
     background-color: white;
     position: absolute;
     top: 0;
 }
 
 .editar-perfil::before {
-    left: 600px;
+    left: 30%;
 }
 
 .editar-perfil::after {
-    right: 600px;
+    right: 30%;
 }
 
 .perfil-form {
-    max-width: 400px; /* Ajusta esto según tus necesidades */
+    max-width: 400px; 
     width: 100%;
     margin-top: 40px;
     padding-bottom: 20px;
@@ -1270,7 +1280,7 @@ footer .cluster1{
 
 .perfil-form label {
     display: block;
-    margin-bottom: 5px; /* Ajusta esto según tus necesidades */
+    margin-bottom: 5px; 
 }
 
 .perfil-form input,
@@ -1278,7 +1288,7 @@ footer .cluster1{
 .perfil-form textarea {
     width: 100%;
     padding: 8px;
-    margin-bottom: 20px; /* Ajusta esto según tus necesidades */
+    margin-bottom: 20px; 
     box-sizing: border-box;
     border: none;
     border-radius: 5px;
@@ -1313,14 +1323,14 @@ footer .cluster1{
 }
 
 .cancelar {
-    margin-top: 10px; /* Ajusta esto según tus necesidades */
+    margin-top: 10px; 
     display: inline-block;
-    padding: 10px 15px; /* Ajusta el relleno según sea necesario */
+    padding: 10px 15px; 
     text-decoration: none;
     color: white;
-    background-color: #007BFF; /* Color de fondo del botón, puedes ajustarlo */
-    border: 1px solid #007BFF; /* Borde del botón, puedes ajustarlo */
-    border-radius: 5px; /* Esquinas redondeadas del botón */
+    background-color: #007BFF; 
+    border: 1px solid #007BFF; 
+    border-radius: 5px; 
     margin: 0 auto;
     width: fit-content;
     margin-bottom: 30px;
@@ -1329,18 +1339,18 @@ footer .cluster1{
 }
 
 .perfil-form .help-text {
-    max-width: 150px; /* Ajusta esto según tus necesidades */
+    max-width: 150px; 
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    font-size: 12px; /* Ajusta el tamaño de fuente según tus necesidades */
+    font-size: 12px; 
 }
 
 .perfil-form p {
-    max-width: 700px; /* Ajusta esto según tus necesidades */
+    max-width: 700px; 
     overflow: hidden;
     white-space: nowrap;
-    font-size: 14px; /* Ajusta el tamaño de fuente según tus necesidades */
+    font-size: 14px; 
 }
 
 /* Seccion Nosotros */
@@ -1370,7 +1380,7 @@ footer .cluster1{
 }
 
 .nosotros2 {
-    flex-direction: row-reverse; /* Invierte el orden de los elementos en .nosotros2 */
+    flex-direction: row-reverse; 
 }
 
 .nosotros1 {
@@ -1406,14 +1416,13 @@ footer .cluster1{
 }
 
 /* Crear Categoria */
-
 .contenedor-total {
     max-width: 500px;
     margin: auto;
     background-color: black;
     border: 2px solid white;
-    border-radius: 10px; /* Ajusta según sea necesario para redondear las esquinas */
-    padding: 20px; /* Ajusta según sea necesario para agregar espacio interno */
+    border-radius: 10px; 
+    padding: 20px; 
     margin-top: 90px;
 }
 
@@ -1442,7 +1451,7 @@ footer .cluster1{
 }
 
 .formulario-crear-categoria #id_nombre {
-    width: 100%; /* Ajusta según sea necesario */
+    width: 100%; 
     height: 30px;
     padding: 16px;
     margin-top: 20px;
@@ -1456,7 +1465,7 @@ footer .cluster1{
 
 .formulario-crear-categoria label[for="id_nombre"] {
     margin-bottom: 40px;
-    font-size: 23px; /* Ajusta el tamaño de fuente de la etiqueta del campo Nombre */
+    font-size: 23px; 
 }
 
 .formulario-crear-categoria label[for="id_nombre"] {
@@ -1494,7 +1503,7 @@ footer .cluster1{
 }
 
 .crear-categoria-cancelar a:hover {
-    background-color: #0056b3; /* Cambia el color de fondo al pasar el mouse, ajusta según sea necesario */
+    background-color: #0056b3; 
 }
 
 /* Cambio Contraseña */
@@ -1519,18 +1528,18 @@ footer .cluster1{
 .cambio-contrasena::after {
     content: "";
     height: 100%;
-    width: 2px; /* Ancho de la línea */
-    background-color: white; /* Color de la línea */
+    width: 2px; 
+    background-color: white; 
     position: absolute;
     top: 0;
 }
 
 .cambio-contrasena::before {
-    left: 600px; /* Ajusta la posición a la izquierda */
+    left: 30%; 
 }
 
 .cambio-contrasena::after {
-    right: 600px; /* Ajusta la posición a la derecha */
+    right: 30%; 
 }
 
 .cambio-contrasena h2,
@@ -1553,8 +1562,8 @@ footer .cluster1{
 
 .cambio-contrasena input[type="password"] {
     font-size: 18px;
-    width: 100%; /* Asegura que el ancho del campo de contraseña sea del 100% */
-    margin-top: 20px; /* Espacio entre los campos de contraseña */
+    width: 100%; 
+    margin-top: 20px; 
     margin-bottom: 20px;
     background-color: #5e5d5c;
     padding: 8px;
@@ -1563,14 +1572,14 @@ footer .cluster1{
 }
 
 .cambio-contrasena a {
-    margin-top: 70px; /* Ajusta esto según tus necesidades */
+    margin-top: 70px; 
     display: inline-block;
-    padding: 10px 15px; /* Ajusta el relleno según sea necesario */
+    padding: 10px 15px; 
     text-decoration: none;
     color: white;
-    background-color: #007BFF; /* Color de fondo del botón, puedes ajustarlo */
-    border: 1px solid #007BFF; /* Borde del botón, puedes ajustarlo */
-    border-radius: 5px; /* Esquinas redondeadas del botón */
+    background-color: #007BFF; 
+    border: 1px solid #007BFF; 
+    border-radius: 5px; 
     margin: 0 auto;
     width: fit-content;
     margin-bottom: 30px;
@@ -1670,7 +1679,7 @@ footer .cluster1{
 .social-media ul li a i {
     font-size: 16px;
     line-height: 30px;
-    color: black;
+    color: white;
 }
 
 .mapa {
@@ -1678,3 +1687,98 @@ footer .cluster1{
     padding: 0 20px; 
 }
 
+/* Editar Noticia */
+.editar-noticia {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    color: white;
+}
+
+.editar-noticia h1 {
+    margin-bottom: 50px;
+}
+
+.editar-noticia-form label,
+.editar-noticia-form input,
+.editar-noticia-form button {
+    margin-bottom: 25px;
+}
+
+.editar-noticia-form label {
+    display: block;
+    margin-bottom: 8px; 
+}
+
+.editar-noticia-form input[type="text"],
+.editar-noticia-form textarea {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #5e5d5c;
+    color: white;
+}
+
+.editar-noticia-form button {
+    padding: 8px 20px;
+    font-size: 16px;
+    margin-top: 30px;
+    background-color: #007BFF;
+    color: white;
+    border: 0;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-bottom: 80px;
+}
+
+.editar-noti-cancelar {
+    font-size: 14px;
+    text-decoration: none;
+    background-color: #007BFF;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 10px 28px;
+}
+
+.editar-noti-cancelar:hover {
+    background-color: #0056b3;
+}
+
+.editar-noticia-form a {
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+}
+
+.editar-noticia-form input[type="file"] {
+    background-color: black;
+    color: white; 
+    border: 0;
+    margin-left: 4%;
+    cursor: pointer;
+}
+
+.editar-noticia-form input[type="file"]::-webkit-file-upload-button {
+    border: 0; 
+    padding: 5px 8px; 
+    background-color: #007BFF;
+    color: white;
+    border-radius: 5px;
+    font-size: 12px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.editar-noticia-form select {
+    background-color: #333;  
+    color: white;  
+    font-size: 16px;
+    padding: 4px;
+    margin-left: 5px;
+    font-size: 14px;
+}

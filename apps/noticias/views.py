@@ -144,7 +144,6 @@ def Modificar_Comentario2(request, comentario_id):
 
         return render(request, 'noticias/modificar_comentario.html', {'comentario': comentario})
     else:
-        # Si no es staff ni el autor del comentario, redirige a alguna página de error o muestra un mensaje
         return HttpResponseBadRequest("No tienes permisos para modificar este comentario.")
 
 @user_passes_test(es_personal)

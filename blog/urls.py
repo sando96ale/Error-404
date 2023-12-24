@@ -29,7 +29,6 @@ urlpatterns = [
     # 2 LA VISTA QUE VA EJECUTAR
     # 3 ES EL NOMBRE LA URL (aun no lo usamos)
     path('', views.Home, name = 'home'),
-    #No necesariamente estos 3 valores (parametors) se deben llamar igual
     path('Nosotros/', views.Nosotros, name = 'nosotros'),
     path('Contacto/', views.Contacto, name = 'contacto'),
 
@@ -40,6 +39,5 @@ urlpatterns = [
     # URL DE APLICACION
     path('Noticias/', include('apps.noticias.urls')),
     path('Usuario/',include('apps.usuarios.urls')),
-    # path('Crear-noticia', include('apps.noticias.urls'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

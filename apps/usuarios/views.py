@@ -31,7 +31,7 @@ def editar_perfil(request):
             usuario = usuario_form.save(commit=False)
             usuario.save()
             messages.success(request, 'Tu perfil ha sido actualizado con éxito.')
-            return redirect('home')  # Cambia a la página de inicio o a donde desees redirigir
+            return redirect('home') 
         else:
             messages.error(request, 'Por favor, corrige los errores a continuación.')
     else:
@@ -44,7 +44,7 @@ def cambio_contrasena(request):
         form = PasswordChangeForm(request.user, request.POST)
         if form.is_valid():
             user = form.save()
-            update_session_auth_hash(request, user)  # Importante para mantener la sesión iniciada
+            update_session_auth_hash(request, user) 
             messages.success(request, 'Contraseña actualizada con éxito.')
             return redirect('usuarios:mi_cuenta')
         else:
